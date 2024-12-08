@@ -1,0 +1,40 @@
+<article class="product-item rounded-4 text-center">
+    <% if (locals.isAdmin) { %>
+      <img src="<%= product.imageUrl %>" alt="<%= product.title %>" class="w-100" />
+      <div class="product-item-content p-3">
+        <h2 class="text-truncate fs-5 my-2"><%= product.title %></h2>
+        <section class="d-flex gap-3 mt-3 justify-content-center">
+          <button
+            type="button"
+            class="btn btn-alt"
+            data-bs-toggle="modal"
+            data-bs-target="#productModal<%= i %>"
+          >
+            <i class="fa-solid fa-pen-to-square"></i>
+          </button>
+  
+          <button
+            type="button"
+            class="btn btn-alt"
+            data-bs-toggle="modal"
+            data-bs-target="#YesNoModal<%= i %>"
+          >
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </section>
+      </div>
+    <% } else { %>
+      <a href="/products/<%= product.id %>">
+        <img src="<%= product.imageUrl %>" alt="<%= product.title %>" class="w-100" />
+        <div class="product-item-content p-3">
+          <h2 class="text-truncate fs-5 my-2"><%= product.title %></h2>
+        </div>
+      </a>
+    <% } %>
+  </article>
+  
+  <% if(locals.isAdmin) { %> 
+    <%- include('../../admin/products/includes/product-form', { submitPath: '/admin/products/' + product.id, title: 'Update product', i: i, product: product, category: category, imageRequired: false }) %> 
+    <%- include('../../admin/popup/yes-no-popup', {submitPath: '/admin/products/delete/' + product.id, message: 'delete this product?', i: i }) %> 
+  <% } %>
+  

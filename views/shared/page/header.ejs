@@ -1,0 +1,47 @@
+<script src="/scripts/mobile.js" defer></script>
+
+<header
+  id="main-header"
+  class="top-0 start-0 w-100 mx-auto px-3 d-flex justify-content-between align-items-center z-1"
+>
+  <section class="d-flex">
+    <img
+      src="/assets/icons/logo.png"
+      alt="Logo"
+      style="width: 3rem; height: 3rem"
+    />
+    <i class="fw-bold fs-3 mx-2 my-auto">WPF</i>
+  </section>
+
+  <nav><%- include('nav-items') %></nav>
+
+  <section class="d-flex">
+    <section class="form-check form-switch my-auto">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        role="button"
+        id="switchCheck"
+      />
+      <i class="fa-regular fa-moon fs-4"></i>
+      <i class="fa-regular fa-sun fs-4 text-black"></i>
+    </section>
+
+    <% if(locals.isAuth) { %>
+    <button
+      id="mobile-menu-btn"
+      class="flex-column justify-content-around border-0 bg-transparent ms-3"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <% } %>
+  </section>
+</header>
+<aside
+  id="mobile-menu"
+  class="position-fixed w-100 h-100 flex-column align-items-centers"
+>
+  <nav class="my-3"><%- include('nav-items') %></nav>
+</aside>
