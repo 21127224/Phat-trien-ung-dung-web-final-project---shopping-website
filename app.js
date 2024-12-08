@@ -1,93 +1,85 @@
-// app.js
+require("dotenv").config();
 
-require('dotenv').config();
-const express = require('express');
-const mongoose = require('mongoose');
-const session = require('express-session');
-const MongoStore = require('connect-mongo');
-const flash = require('connect-flash');
-const passport = require('passport');
-const methodOverride = require('method-override');
-const path = require('path');
-const expressLayouts = require('express-ejs-layouts');
+const express = require("express");
+const csrf = require("csurf");
+const expressSession = require("express-session");
+const https = require("https");
+const cors = require("cors");
+const fs = require("fs");
+const path = require("path");
 
-// Import Passport Config
-require('./config/passport')(passport); // Đảm bảo bạn có file config/passport.js
+const opts = {
+  requestCert: true,
+  rejectUnauthorized: false,
+  key: fs.readFileSync("./localhost.key", { encoding: "utf-8" }),
+  cert: fs.readFileSync("./localhost.crt", { encoding: "utf-8" }),
+};
 
-// Import routes
-const homeRoutes = require('./routes/homeRoutes');
-const authRoutes = require('./routes/authRoutes');
-const productRoutes = require('./routes/productRoutes');
-const cartRoutes = require('./routes/cartRoutes');
-const orderRoutes = require('./routes/orderRoutes');
-const adminRoutes = require('./routes/adminRoutes');
-const userRoutes = require('./routes/userRoutes');
+const createSessionConfig = require("./config/session");
+const db = require("./data/database");
+const addCsrfTokenMiddleware = require("./middlewares/csrf-token");
+const errorHandlerMiddleware = require("./middlewares/error-handler");
+const checkAuthStatusMiddleware = require("./middlewares/check-auth");
+const protectRoutesMiddleware = require("./middlewares/protect-routes");
+const cartMiddleware = require("./middlewares/cart");
+const updateCartPricesMiddleware = require("./middlewares/update-cart-prices");
+const notFoundMiddleware = require("./middlewares/not-found");
+const authRoutes = require("./routes/auth.routes");
+const categoriesRoutes = require("./routes/categories.routes");
+const productsRoutes = require("./routes/products.routes");
+const accountsRoutes = require("./routes/accounts.routes");
+const voucherRoutes = require("./routes/voucher.routes");
+const baseRoutes = require("./routes/base.routes");
+const adminRoutes = require("./routes/admin.routes");
+const ordersRoutes = require("./routes/orders.routes");
+const cartRoutes = require("./routes/cart.routes");
 
-// Initialize Express app
+const port = process.env.PORT | 3000;
+
 const app = express();
+const server = https.createServer(opts, app);
 
-// Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI)
-.then(() => console.log('MongoDB Connected'))
-.catch(err => console.log('MongoDB Connection Error:', err));
+app.use(cors());
 
-// Middleware
-app.use(express.urlencoded({ extended: true }));
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+app.use(express.static("public"));
+app.use("/assets", express.static("image-data"));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(methodOverride('_method'));
 
-// Sử dụng express-ejs-layouts
-app.use(expressLayouts);
-app.set('layout', 'layout'); // Đặt layout mặc định cho admin
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs'); // Đặt view engine đúng cách
-// Session configuration
-app.use(session({
-    secret: process.env.SECRET_KEY,
-    resave: false,
-    saveUninitialized: true,
-    store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
-    cookie: { maxAge: 1000 * 60 * 60 * 24 } // 1 ngày
-}));
+const sessionConfig = createSessionConfig();
 
-// Passport middleware
-app.use(passport.initialize());
-app.use(passport.session());
+app.use(expressSession(sessionConfig));
+app.use(csrf());
 
-// Flash messages
-app.use(flash());
+app.use(cartMiddleware);
+app.use(updateCartPricesMiddleware);
 
-// Global variables for templates
-app.use((req, res, next) => {
-    res.locals.title = 'Your Default Title'; // Đặt tiêu đề mặc định
-    res.locals.success_msg = req.flash('success_msg');
-    res.locals.error_msg = req.flash('error_msg');
-    res.locals.error = req.flash('error');
-    res.locals.user = req.user || null;
-    next();
-});
+app.use(addCsrfTokenMiddleware);
+app.use(checkAuthStatusMiddleware);
 
-// Static files
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(baseRoutes);
+app.use(authRoutes);
+app.use(categoriesRoutes);
+app.use(productsRoutes);
+app.use(accountsRoutes);
+app.use(voucherRoutes);
+app.use("/cart", cartRoutes);
+app.use("/orders", protectRoutesMiddleware, ordersRoutes);
+app.use("/admin", protectRoutesMiddleware, adminRoutes);
 
-// Routes
-app.use('/', homeRoutes);      // Route trang chủ
-app.use('/', authRoutes);      // Các route authentication khác
-app.use('/products', productRoutes);
-app.use('/cart', cartRoutes);
-app.use('/orders', orderRoutes);
-app.use('/admin', adminRoutes); // Route quản trị
-app.use('/', userRoutes);
+app.use(notFoundMiddleware);
 
-// Error handling routes
-const errorController = require('./controllers/errorController');
-app.use(require('./routes/errorRoutes'));
-app.use(errorController.get404);
-app.use(errorController.get500);
+app.use(errorHandlerMiddleware);
 
-// Start server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-    console.log(`Main-App Server started on port ${PORT}`);
-    console.log(`http://localhost:${PORT}`);
-});
+db.connectToDatabase()
+  .then(function () {
+    server.listen(port, () =>
+      console.log(`Example app listening on port ${port}!`)
+    );
+  })
+  .catch(function (error) {
+    console.log("Failed to connect to the database!");
+    console.log(error);
+  });

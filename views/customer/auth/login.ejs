@@ -1,0 +1,59 @@
+<%- include('../../shared/page/head', { pageTitle: 'Login' }) %>
+  <link rel="stylesheet" href="/styles/forms.css">
+  <link rel="stylesheet" href="/styles/auth.css">
+  <script src="/scripts/show-hide-password.js" defer></script>
+</head>
+
+<body>
+  <%- include('../../shared/page/header') %>
+  <main>
+    <nav class="nav nav-pills nav-justified border rounded my-4 w-50 mx-auto fw-medium">
+      <a class="nav-link active bg-secondary" aria-current="page" href="#">Login</a>
+      <a class="nav-link text-secondary" href="/signup">Signup</a>
+    </nav>
+    <form action="/login" method="POST" class="form text-center fadeUp mx-auto p-3 rounded-4">
+      <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+
+      <p class="mb-2">
+        <label for="username" class="fw-semibold d-block mb-2">Username</label>
+        <input type="text" id="username" name="username" value="<%= inputData.username %>" class="form-control"  required />
+      </p>
+
+      <p class="mb-2">
+        <label for="password" class="fw-semibold d-block mb-2">Password</label>
+        <section class="input-group" id="password-frame">
+          <input type="password" id="password" name="password" value="<%= inputData.password %>" class="form-control" required>
+          <section class="input-group-text">
+            <a href="" class="text-black"><i class="fa fa-eye-slash"></i></a>
+          </section>
+        </section>
+      </p>
+
+      <hr class="m-3">
+      <button class="btn btn-solid">Login</button>
+
+      <p class="d-grid my-3 px-4">
+        <a
+          href="/gg"
+          id="btn-google"
+          class="btn text-uppercase fw-bold"
+        >
+          <i class="fab fa-google me-1"></i>
+          Sign in with Google
+        </a>
+      </p>
+
+      <p class="d-grid mb-3 px-4">
+        <a
+          href="/fb"
+          id="btn-facebook"
+          class="btn text-uppercase fw-bold"
+        >
+          <i class="fab fa-facebook me-1"></i>
+          Sign in with Facebook
+        </a>
+      </p>
+    </form>
+    <%-include('../../admin/popup/notification', { message: inputData.message, isError: inputData.isError }) %>
+  </main>
+<%- include('../../shared/page/footer') %>

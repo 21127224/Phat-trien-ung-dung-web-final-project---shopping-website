@@ -1,0 +1,19 @@
+<%- include('../../shared/page/head', { pageTitle: 'Signup' }) %>
+<link rel="stylesheet" href="/styles/auth.css">
+
+</head>
+<body>
+  <%- include('../../shared/page/header') %>
+  <main>
+    <nav class="nav nav-pills nav-justified border rounded my-4 w-50 mx-auto fw-medium">
+      <a class="nav-link text-secondary" href="/login">Login</a>
+      <a class="nav-link active bg-secondary" aria-current="page" href="#">Signup</a>
+    </nav>
+    <form action="/signup?_csrf=<%= locals.csrfToken %>" method="POST" class="form text-center fadeUp mx-auto p-3 rounded-4">
+      <%- include('../../shared/account/includes/account-add-form', { inputData: inputData }) %>
+      <hr class="m-3">
+      <button class="btn btn-solid">Create Account</button>
+    </form>
+    <%-include('../../admin/popup/notification', { message: inputData.message, isError: inputData.isError }) %>
+  </main>
+<%- include('../../shared/page/footer') %>
