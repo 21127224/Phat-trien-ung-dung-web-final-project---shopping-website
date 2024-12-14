@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="/styles/forms.css" />
+<script src="/scripts/select-address.js" defer></script>
+<script src="/scripts/select-gender.js" defer></script>
+<script src="/scripts/show-toast.js" defer></script>
+
+<p class="mb-2">
+  <label for="username" class="fw-semibold d-block mb-2">Username (<span class="text-danger">*</span>)</label>
+  <% const Vietnamese = "àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸ" %>
+  <input type="text" id="username" name="username" pattern="^[a-zA-Z<%= Vietnamese %>]([a-zA-Z<%= Vietnamese %>0-9 ]*[a-zA-Z<%= Vietnamese %>0-9])?$" maxlength="50" value="" class="form-control"
+    data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="right"
+    data-bs-content="Letters, numbers or spaces only; does not end with space; begins with a letter" required />
+</p>
+<p class="mb-2">
+  <label for="password" class="fw-semibold d-block mb-2">Password (<span class="text-danger">*</span>)</label>
+  <input type="password" id="password" name="password" pattern="^(?=.*\d)(?=.*[\W_])(?!.*\s)(?=.*[a-z]).{8,}$"
+    maxlength="20" value="<%= inputData.password %>" class="form-control"
+    data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="right"
+    data-bs-content="At least 8 characters long; no spaces; including letters, numbers and special characters" required />
+</p>
+<p class="mb-2">
+  <label for="confirmPassword" class="fw-semibold d-block mb-2">Confirm password (<span class="text-danger">*</span>)</label>
+  <input type="password" id="confirmPassword" name="confirmPassword" maxlength="20" value="<%= inputData.confirmPassword %>" class="form-control" required />
+</p>
+<p class="mb-2">
+  <label for="fullname" class="fw-semibold d-block mb-2">Fullname (<span class="text-danger">*</span>)</label>
+  <input type="text" id="fullname" name="fullname" maxlength="100" value="<%= inputData.fullname %>" class="form-control" required />
+</p>
+<p class="mb-2">
+  <label for="street" class="fw-semibold d-block mb-2">Address (<span class="text-danger">*</span>)</label>
+  <section class="d-flex flex-column gap-3">             
+    <select id="city" name="city" class="form-control" required>
+      <option value="<%= inputData.cityID %>" selected><%= inputData.city %></option>
+    </select>
+
+    <select id="district" name="district" class="form-control" required>
+      <option value="<%= inputData.districtID %>" selected><%= inputData.district %></option>
+    </select>
+
+    <select id="ward" name="ward" class="form-control" required>
+      <option value="<%= inputData.wardID %>" selected><%= inputData.ward %></option>
+    </select>
+
+    <input type="text" id="street" name="street" maxlength="50" placeholder="Apartment number + street" value="<%= inputData.street %>" class="form-control" required />
+  </section>
+</p>
+<p class="mb-2">
+  <label for="birthday" class="fw-semibold d-block mb-2">Birthday (<span class="text-danger">*</span>)</label>
+  <input type="date" id="birthday" name="birthday" max="<%= new Date().toISOString().split('T')[0] %>" value="<%= new Date().toISOString().split("T")[0] %>" class="form-control" required />
+</p>
+<p class="mb-2">
+  <label for="gender" class="fw-semibold d-block mb-2">Gender</label>
+  <select id="gender" name="gender" class="form-control">
+    <option value="<%= inputData.gender %>" selected><%= inputData.gender %></option>
+  </select>
+</p>
+<p class="mb-2">
+  <label for="phone" class="fw-semibold d-block mb-2">Phone Number</label>
+  <input type="tel" id="phone" name="phone" pattern="(((\+|)84)|0)(3|5|7|8|9)+([0-9]{8})\b" maxlength="10" value="<%= inputData.phone %>" class="form-control"
+    data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="right"
+    data-bs-content="Exist in Vietnam" />
+</p>
+<p class="mb-2">
+  <label for="email" class="fw-semibold d-block mb-2">Email</label>
+  <input type="email" id="email" name="email" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$" maxlength="30" value="<%= inputData.email %>" class="form-control"
+    data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="right"
+    data-bs-content="Ex: abc@gmail.com" />
+</p>

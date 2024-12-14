@@ -1,5 +1,5 @@
 const User = require("../models/user.model");
-const authUtil = require("../util/authentication");
+//const authUtil = require("../util/authentication");
 const sessionFlash = require("../util/session-flash");
 
 function getSignup(req, res) {

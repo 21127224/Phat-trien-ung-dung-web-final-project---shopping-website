@@ -1,0 +1,43 @@
+<script src="/scripts/notification.js" defer></script>
+
+<div class="modal scale-modal" id="notificationModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <img
+          src="/assets/icons/<%= isError ? 'fail' : 'success' %>.png"
+          alt="<%= isError ? 'Fail' : 'Success' %>"
+          class="me-2"
+          style="width: 1.25rem"
+        />
+        <h1 class="modal-title fs-5" id="notificationModalLabel">
+          <%= isError ? 'Fail' : 'Success' %>
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <p
+          id="message"
+          name="message"
+          class="<%= isError ? 'text-danger' : 'text-success' %> fs-6 fw-normal"
+        >
+          <%= message %>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn bg-primary border-primary"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

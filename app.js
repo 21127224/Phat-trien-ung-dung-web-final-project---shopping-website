@@ -12,7 +12,7 @@ const opts = {
   requestCert: true,
   rejectUnauthorized: false,
   key: fs.readFileSync("./localhost.key", { encoding: "utf-8" }),
-  cert: fs.readFileSync("./localhost.crt", { encoding: "utf-8" }),
+  cert: fs.readFileSync("./localhost.crt", { encoding: "utf-8" }),// để mã hóa 
 };
 
 const createSessionConfig = require("./config/session");
@@ -21,18 +21,18 @@ const addCsrfTokenMiddleware = require("./middlewares/csrf-token");
 const errorHandlerMiddleware = require("./middlewares/error-handler");
 const checkAuthStatusMiddleware = require("./middlewares/check-auth");
 const protectRoutesMiddleware = require("./middlewares/protect-routes");
-const cartMiddleware = require("./middlewares/cart");
-const updateCartPricesMiddleware = require("./middlewares/update-cart-prices");
-const notFoundMiddleware = require("./middlewares/not-found");
+//const cartMiddleware = require("./middlewares/cart");
+//const updateCartPricesMiddleware = require("./middlewares/update-cart-prices");
+//const notFoundMiddleware = require("./middlewares/not-found");
 const authRoutes = require("./routes/auth.routes");
-const categoriesRoutes = require("./routes/categories.routes");
-const productsRoutes = require("./routes/products.routes");
-const accountsRoutes = require("./routes/accounts.routes");
-const voucherRoutes = require("./routes/voucher.routes");
-const baseRoutes = require("./routes/base.routes");
-const adminRoutes = require("./routes/admin.routes");
-const ordersRoutes = require("./routes/orders.routes");
-const cartRoutes = require("./routes/cart.routes");
+//const categoriesRoutes = require("./routes/categories.routes");
+//const productsRoutes = require("./routes/products.routes");
+//const accountsRoutes = require("./routes/accounts.routes");
+//const voucherRoutes = require("./routes/voucher.routes");
+//const baseRoutes = require("./routes/base.routes");
+//const adminRoutes = require("./routes/admin.routes");
+//const ordersRoutes = require("./routes/orders.routes");
+//const cartRoutes = require("./routes/cart.routes");
 
 const port = process.env.PORT | 3000;
 
@@ -53,23 +53,23 @@ const sessionConfig = createSessionConfig();
 app.use(expressSession(sessionConfig));
 app.use(csrf());
 
-app.use(cartMiddleware);
-app.use(updateCartPricesMiddleware);
+//app.use(cartMiddleware);
+//app.use(updateCartPricesMiddleware);
 
 app.use(addCsrfTokenMiddleware);
 app.use(checkAuthStatusMiddleware);
 
-app.use(baseRoutes);
+//app.use(baseRoutes);
 app.use(authRoutes);
-app.use(categoriesRoutes);
-app.use(productsRoutes);
-app.use(accountsRoutes);
-app.use(voucherRoutes);
-app.use("/cart", cartRoutes);
-app.use("/orders", protectRoutesMiddleware, ordersRoutes);
-app.use("/admin", protectRoutesMiddleware, adminRoutes);
+//app.use(categoriesRoutes);
+//app.use(productsRoutes);
+//app.use(accountsRoutes);
+//app.use(voucherRoutes);
+//app.use("/cart", cartRoutes);
+//app.use("/orders", protectRoutesMiddleware, ordersRoutes);
+//app.use("/admin", protectRoutesMiddleware, adminRoutes);
 
-app.use(notFoundMiddleware);
+//app.use(notFoundMiddleware);
 
 app.use(errorHandlerMiddleware);
 

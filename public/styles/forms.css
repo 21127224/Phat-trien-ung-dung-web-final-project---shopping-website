@@ -1,0 +1,24 @@
+select.form-control {
+  appearance: auto;
+  -webkit-appearance: auto;
+  -moz-appearance: auto;
+}
+
+.image-upload-control input {
+  max-width: 15rem;
+}
+
+.image-upload-control img {
+  width: 4rem;
+  height: 4rem;
+  object-fit: cover;
+}
+
+.scale-modal {
+  transform: scale(0.1);
+  transition: transform 0.3s ease-out;
+}
+
+.scale-modal.show {
+  transform: scale(1);
+}

@@ -1,0 +1,14 @@
+form {
+  max-width: 25rem;
+  margin-bottom: var(--space-8);
+}
+
+#btn-google {
+  background-color: crimson;
+  border: 1px solid crimson;
+}
+
+#btn-facebook {
+  background-color: #0866ff;
+  border: 1px solid #0866ff;
+}

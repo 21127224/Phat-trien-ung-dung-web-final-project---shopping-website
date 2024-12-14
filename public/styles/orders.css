@@ -1,0 +1,16 @@
+.order-summary,
+.heading {
+  flex-direction: column;
+}
+
+.product-list {
+  list-style: square;
+  margin-left: var(--space-8);
+}
+
+@media (min-width: 769px) {
+  .order-summary,
+  .heading {
+    flex-direction: row;
+  }
+}

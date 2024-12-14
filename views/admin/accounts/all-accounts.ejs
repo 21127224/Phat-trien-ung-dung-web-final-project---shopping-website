@@ -1,0 +1,114 @@
+<%- include('../../shared/page/head', { pageTitle: 'All Accounts' }) %>
+</head>
+
+<body>
+  <%- include('../../shared/page/header') %>
+  <main>
+    <h1 class="my-2">Account Management</h1>
+    <section>
+      <p>
+        <button type="button" class="btn btn-solid mt-3" data-bs-toggle="modal" data-bs-target="#addAccountModal">
+          <i class="fa-solid fa-user-plus me-1"></i>
+          Add Account
+        </button>
+
+        <form action="/admin/accounts?_csrf=<%= locals.csrfToken %>" method="POST" class="account-form">
+          <div
+            class="modal fade"
+            id="addAccountModal"
+            tabindex="-1"
+            aria-labelledby="addAccountModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5 text-black" id="addAccountModalLabel">Add new account</h1>
+                  <button
+                    type="reset"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body text-black">
+                  <%- include('../../shared/account/includes/account-add-form', { inputData: inputData }) %>
+                  <p class="mb-2">
+                    <label for="admin" class="fw-semibold d-block mb-2">Type</label>
+                    <article class="d-flex justify-content-around">
+                      <article class="d-flex gap-1">
+                        <input type="radio" name="type" id="admin" value="true" checked />
+                        <label role="button" for="admin">
+                          Admin
+                        </label>
+                      </article>
+                      <article class="d-flex gap-1">
+                        <input type="radio" name="type" id="customer" value="false" />
+                        <label role="button" for="customer">
+                          Customer
+                        </label>
+                      </article>
+                    </article>
+                  </p>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="reset"
+                    class="btn btn-alt text-secondary border-secondary"
+                  >
+                    <i class="fa-solid fa-arrow-rotate-right"></i> 
+                    Reset
+                  </button>
+                  <button type="submit" class="btn bg-primary border-primary">
+                    <i class="fa-solid fa-check"></i> 
+                    Save
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <%- include('../../admin/popup/notification', { message: inputData.message, isError: inputData.isError }) %>
+      </p>
+    </section>
+    <section class="table-responsive">
+      <table class="table table-striped table-hover mt-4 text-center table-bordered border-secondary">
+        <thead>
+          <tr>
+            <th scope="col">Username</th>
+            <th scope="col">Name</th>
+            <th scope="col">Type</th>
+            <th scope="col">Manage</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <% for (const account of accounts) { %>
+            <% const i = accounts.indexOf(account) %>
+            <tr>
+              <td><%= account.username %></td>
+              <td><%= account.fullname ? account.fullname : '?' %></td>
+              <td>
+                <%= account.isAdmin ? 'Admin' : 'Customer' %> 
+              </td>
+              <td>
+                <% if (!account.isAdmin) { %>
+                  <button 
+                    type="button"
+                    class="btn btn-alt"
+                    data-bs-toggle="modal"
+                    data-bs-target="#YesNoModal<%= i %>"
+                  >
+                    <i class="fa-solid fa-ban"></i>
+                  </button>
+                  <%- include('../../admin/popup/yes-no-popup', { submitPath: '/admin/accounts/delete/' + account._id, message: 'block this account?', i: i }) %>
+                <% } %>
+              </td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+<%- include('../../shared/page/footer') %>

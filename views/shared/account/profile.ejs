@@ -1,0 +1,35 @@
+<%- include('../../shared/page/head', { pageTitle: account.username }) %>
+<script src="/scripts/image-preview.js" defer></script>
+</head>
+<body>
+  <%- include('../../shared/page/header') %>
+  <main>
+    <header>
+      <article class="d-flex">
+        <img class="rounded-circle img-thumbnail my-4 me-3" style="width: 6rem; height: 6rem;" src="<%= account.imageUrl %>" alt="<%= account.username %>" name="avatar" />
+        <h1 class="my-5">Hello <%= account.username %></h1>
+      </article>
+      
+      <% const date = account.birthday.split('-') %>
+      <p><strong>Fullname:</strong> <%= account.fullname ? account.fullname : '?' %></p>
+      <p><strong>Address:</strong> <%= account.address ? account.address : '?' %></p>
+      <p><strong>Birthday:</strong> <%= date.length === 3 ? `${date[2]}/${date[1]}/${date[0]}` : '?' %></p>
+      <p><strong>Gender:</strong> <%= account.gender %></p>
+      <p><strong>Phone Number:</strong> <%= account.phone ? account.phone : '?' %></p>
+      <p><strong>Email:</strong> <%= account.email ? account.email : '?' %></p>
+
+      <button type="button" class="btn btn-solid me-3" data-bs-toggle="modal" data-bs-target="#accountModal">
+        <i class="fa-solid fa-pen-to-square me-1"></i> 
+        Update
+      </button>
+
+      <button type="button" class="btn btn-solid bg-danger border-danger" data-bs-toggle="modal" data-bs-target="#YesNoModal">
+        <i class="fa-solid fa-trash me-1"></i> 
+        Delete
+      </button>
+
+      <%- include('./includes/account-update-form', { submitPath: '/accounts', account: account, message: message, isError: isError }) %>
+      <%- include('../../admin/popup/yes-no-popup', { submitPath: '/accounts/delete/', message: 'delete your account?', i: '' }) %>
+    </header>
+  </main>
+<%- include('../../shared/page/footer') %>

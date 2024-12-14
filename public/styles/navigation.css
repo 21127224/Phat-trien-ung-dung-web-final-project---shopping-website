@@ -1,0 +1,167 @@
+main {
+  margin-top: 6rem;
+}
+
+#main-header {
+  position: fixed;
+  max-width: 60rem;
+  height: 5rem;
+}
+
+#main-header nav {
+  display: none;
+}
+
+.nav-items {
+  flex-direction: column;
+}
+
+#mobile-menu-btn {
+  display: flex;
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+#mobile-menu-btn span {
+  width: 2.25rem;
+  height: 0.2rem;
+}
+
+#mobile-menu {
+  top: 5rem;
+  display: none;
+}
+
+#mobile-menu.open {
+  display: flex;
+  z-index: 1;
+}
+
+#mobile-menu .nav-items a,
+#mobile-menu .nav-items button {
+  font-size: 1.75rem;
+}
+
+.dropdown {
+  display: none;
+}
+
+.manage {
+  display: block;
+}
+
+.fa-moon {
+  color: var(--color-gray-100);
+}
+
+@media (min-width: 769px) {
+  main {
+    margin-top: 0;
+  }
+
+  #main-header {
+    position: static;
+  }
+
+  #main-header nav {
+    display: block;
+  }
+
+  #mobile-menu-btn {
+    display: none;
+  }
+
+  #mobile-menu.open {
+    display: none;
+  }
+
+  .nav-items {
+    flex-direction: row;
+  }
+
+  .nav-items a,
+  .nav-items article {
+    padding: var(--space-2) var(--space-4);
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  .nav-items a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 0;
+    width: 100%;
+    background-color: var(--color-primary-500-bg);
+    border-radius: var(--border-radius-small);
+    z-index: -1;
+    transition: height 0.3s ease;
+  }
+
+  .dropdown {
+    display: inline;
+  }
+
+  .dropdown:hover .dropdown-menu,
+  .dropdown:active .dropdown-menu {
+    display: block;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .dropdown-menu li {
+    margin: 0;
+  }
+
+  .dropdown-menu a::before {
+    border-radius: 0;
+  }
+
+  .manage {
+    display: none;
+  }
+
+  .nav-items a:hover::before {
+    height: 100%;
+  }
+
+  .nav-items a:active {
+    background-color: var(--color-primary-500-bg);
+  }
+
+  .nav-items a:hover {
+    color: white !important;
+  }
+
+  .nav-items a:hover .badge {
+    color: var(--color-gray-600);
+    background-color: white !important;
+  }
+
+  .nav-items button span {
+    transition: all 0.25s linear;
+  }
+
+  .nav-items button span:nth-child(odd) {
+    width: 0;
+    height: 2px;
+    transition-delay: 0.25s;
+  }
+
+  .nav-items button span:nth-child(even) {
+    width: 2px;
+    height: 0;
+  }
+
+  .nav-items button:hover span:nth-child(odd) {
+    width: 100%;
+  }
+
+  .nav-items button:hover span:nth-child(even) {
+    height: 100%;
+    transition-delay: 0.5s;
+  }
+}
