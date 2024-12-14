@@ -1,0 +1,54 @@
+<script src="/scripts/carousel-switch.js" defer></script>
+
+<section 
+  class="<%= firstTime ? 'fadeDown' : '' %>">
+  <h1 class="my-2 customer-title"><%= title %></h1>
+
+  <section
+    id="carousel<%= i %>"
+    class="carousel slide my-5"
+    data-bs-ride="<%= i === 1 ? 'carousel' : 'false' %>"
+    <% if(i === 1) { %> data-bs-interval="3000" <% } %>
+  >
+    <section class="carousel-inner text-center">
+      <% for(let i = 0; i < 5; ++i) { %>
+      <section class="carousel-item <%= i === 0 ? 'active' : '' %>">
+        <% if(products[i].title) { %>
+        <a href="/products/<%= products[i].id %>"
+          ><img
+            src="<%= products[i].imageUrl %>"
+            class="rounded-2"
+            style="width: 20rem; height: 20rem"
+            alt="Product"
+        /></a>
+        <% } else { %>
+        <img
+          src="/assets/images/unavailable.png"
+          class="rounded-2"
+          style="width: 20rem; height: 20rem"
+          alt="Unavailable"
+        />
+        <% } %>
+      </section>
+      <% } %>
+    </section>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carousel<%= i %>"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carousel<%= i %>"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </section>
+</section>

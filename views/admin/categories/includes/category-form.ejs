@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="/styles/forms.css" />
+
+<form action="<%= submitPath %>?_csrf=<%= locals.csrfToken %>" method="POST">
+  <div
+    class="modal fade"
+    id="categoryModal<%= i %>"
+    tabindex="-1"
+    aria-labelledby="categoryModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 text-black" id="categoryModalLabel">
+            <%= title %>
+          </h1>
+          <button
+            type="reset"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body text-black">
+          <p class="mb-2">
+            <label for="title" class="fw-semibold d-block mb-2"
+              >Title (<span class="text-danger">*</span>)</label
+            >
+            <input
+              type="text"
+              id="title"
+              name="title"
+              value="<%= category.title %>"
+              class="form-control"
+              required
+            />
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="reset"
+            class="btn btn-alt text-secondary border-secondary"
+          >
+            <i class="fa-solid fa-arrow-rotate-right"></i> Reset
+          </button>
+          <button class="btn bg-primary border-primary">
+            <i class="fa-solid fa-check"></i>
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

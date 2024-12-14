@@ -1,0 +1,99 @@
+<%- include('../../shared/page/head', { pageTitle: 'All Products' }) %>
+<link rel="stylesheet" href="/styles/products.css">
+<script src="/scripts/image-preview.js" defer></script>
+<script src="/scripts/dropdown-change.js" defer></script>
+</head>
+
+<body>
+  <%- include('../../shared/page/header') %>
+  <main>
+    <%- include('includes/products-carousel', { title: 'Bestsellers', products: bestsellers, i: 1 }) %>
+    <%- include('includes/products-carousel', { title: 'New Products', products: newProducts, i: 2 }) %>
+
+    <section class="<%= firstTime ? 'fadeDown' : '' %>">
+      <h1 class="my-2 customer-title">All Products</h1>
+
+      <form id="searchForm" action="/products" method="GET" class="d-flex justify-content-between">
+        <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>" />
+        <div class="d-flex mt-3">
+          <input type="search" name="name" class="form-control rounded-end-0" placeholder="Search..." value="<%= name %>"/>
+          <button type="submit" class="btn btn-solid rounded-0 rounded-end-1 p-2">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+
+        <div class="d-flex mt-3" id="categoryDropdown">
+          <span class="fs-3">Category</span>
+          <select id="categories" name="cateID" class="rounded-2 ms-2">
+            <option value="all">All</option>
+            <% for (const category of categories) { %>
+              <option value="<%= category.id %>" <%= cateID === category.id ? 'selected' : '' %>><%= category.title %></option>
+            <% } %>
+          </select>
+        </div>
+
+        <div class="d-flex mt-3" id="priceDropdown">
+          <span class="fs-3">Price</span>
+          <select name="price" id="price" class="ms-2 rounded-2">
+            <option value="all">All</option>
+            <option value="cheap" <%= price === 'cheap' ? 'selected' : '' %>>&le; 100.000</option>
+            <option value="medium" <%= price === 'medium' ? 'selected' : '' %>>&le; 500.000</option>
+            <option value="expensive" <%= price === 'expensive' ? 'selected' : '' %>>&gt; 500.000</option>
+          </select>
+        </div>
+      </form>
+
+      
+      <% if(products.length === 0) { %>
+        <i><h4 class="text-center text-secondary mt-5">No products are available</h4></i>
+      <%} else { %>
+        <ul class="gap-3 products-grid products-mobile">
+          <% for (let i = 0; i < products.length; ++i) { %>
+            <% const category = categories.find(category => category.id === products[i].cateId.toString()); %>
+            <li>
+              <%- include('../../shared/page/product-item', { product: products[i], i: i + '-mobile', category: category }) %>
+            </li>
+          <% } %>
+        </ul>
+
+        <ul class="gap-3 products-grid products-pc">
+          <% for (let i = start; i < end; ++i) { %>
+            <% const category = categories.find(category => category.id === products[i].cateId.toString()); %>
+            <li>
+              <%- include('../../shared/page/product-item', { product: products[i], i: i, category: category }) %>
+            </li>
+          <% } %>
+        </ul>
+
+        <ul class="pagination mb-3">
+          <li class="page-item">
+            <a class="btn btn-alt rounded-0 rounded-start-2 page-link" href="/products?page=<%= page <= 1 ? 1 : page - 1 %>&name=<%= name %>&cateID=<%= cateID %>&price=<%= price %>" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+  
+          <% for (let i = 1; i <= total_page; ++i) { %>
+            <% if (i === page) { %>
+              <li class="page-item">
+                <a class="btn btn-solid rounded-0 page-link" href="/products?page=<%= i %>&name=<%= name %>&cateID=<%= cateID %>&price=<%= price %>"><%= i %></a>
+              </li>
+            <% } else { %>
+              <li class="page-item">
+                <a class="btn btn-alt rounded-0 page-link" href="/products?page=<%= i %>&name=<%= name %>&cateID=<%= cateID %>&price=<%= price %>"><%= i %></a>
+              </li>
+            <% } %>
+          <% } %>
+  
+          <li class="page-item">
+            <a class="btn btn-alt rounded-0 rounded-end-2 page-link" href="/products?page=<%= page >= total_page ? total_page : page + 1 %>&name=<%= name %>&cateID=<%= cateID %>&price=<%= price %>" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      <% } %>
+    </section>
+    <% if(firstTime) { %>
+      <%- include('../../admin/popup/notification', { message: "Login successful 🎉", isError: false }) %>
+    <% } %>
+  </main>
+<%- include('../../shared/page/footer') %>

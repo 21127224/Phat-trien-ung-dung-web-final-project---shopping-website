@@ -1,0 +1,33 @@
+<form action="<%= submitPath %>?_csrf=<%= locals.csrfToken %>" method="POST">
+  <div
+    class="modal fade"
+    id="YesNoModal<%= i %>"
+    tabindex="-1"
+    aria-labelledby="YesNoModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="text-black">Are you sure to <%= message %></h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn bg-danger border-0"
+            data-bs-dismiss="modal"
+          >
+            No
+          </button>
+          <button type="submit" class="btn bg-success border-0">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

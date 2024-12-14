@@ -1,0 +1,57 @@
+<%- include('../../shared/page/head', { pageTitle: product.title }) %>
+<link rel="stylesheet" href="/styles/products.css">
+<script src="/scripts/cart-management.js" defer></script>
+</head>
+
+<body>
+  <%- include('../../shared/page/header') %>
+  <main id="product-details">
+    <header>
+      <img src="<%= product.imageUrl %>" alt="<%= product.title %>" id="picture" class="rounded-4">
+      <article id="product-info">
+        <h1><%= product.title %></h1>
+        <p><strong class="text-danger"><i><%= product.price.toLocaleString('vi-VN') %> VND</i></strong></p>
+        <button class="btn btn-solid" data-productid="<%= product.id %>" data-csrf="<%= locals.csrfToken %>"><i class="fa-solid fa-cart-plus me-1"></i> Add to Cart</button>
+      </article>
+    </header>
+    
+    <p id="product-description"><%= product.description %></p>
+
+    <p class="fw-bold">RELATED PRODUCTS</p>
+
+    <ul id="related-products" class="gap-3 products-grid">
+      <% for (let i = 0; i < number_product; ++i) { %>
+        <li>
+          <%- include('../../shared/page/product-item', { product: related_products[i] }) %>
+        </li>
+      <% } %>
+    </ul>
+
+    <section id="carouselRelatedProducts" class="carousel slide">
+      <section class="carousel-inner">
+        <% for (let i = 0; i < number_product; i += 3) { %>
+          <section class="carousel-item <%= i === 0 ? 'active' : '' %>">
+            <ul class="gap-3 products-grid">
+              <% for (let j = 0; j < 3; ++j) { %>
+                <%  if (i + j < number_product) { %>
+                  <li>
+                    <%- include('../../shared/page/product-item', { product: related_products[i + j] }) %>
+                  </li>
+                <% } %>
+              <% } %>
+            </ul>
+          </section>
+        <% } %>
+      </section>
+
+      <button class="carousel-control-prev" id="arrow-prev" type="button" data-bs-target="#carouselRelatedProducts" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" id="arrow-next" type="button" data-bs-target="#carouselRelatedProducts" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </section>
+  </main>
+<%- include('../../shared/page/footer') %>

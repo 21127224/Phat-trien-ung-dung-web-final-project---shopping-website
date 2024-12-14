@@ -1,0 +1,76 @@
+<%- include('../../shared/page/head', { pageTitle: 'All Categories' }) %>
+<script src="/scripts/image-preview.js" defer></script>
+</head>
+<body>
+  <%- include('../../shared/page/header') %>
+  <main>
+    <h1 class="my-2">Category Management</h1>
+    <section>
+      <p>
+        <button type="button" class="btn btn-solid mt-3" data-bs-toggle="modal" data-bs-target="#categoryModal">
+          <i class="fa-solid fa-circle-plus me-1"></i>
+          Add Category
+        </button>
+
+        <%- include('includes/category-form', { submitPath: '/admin/categories', title: 'Add new category', i: '', category: {
+          title: ''
+        }}) %>
+      </p>
+    </section>
+    <section>
+      <% if(categories.length === 0) { %>
+        <i><h4 class="text-center text-secondary mt-5">No categories are available</h4></i>
+      <%} else { %>
+        <table class="table table-striped table-hover mt-4 text-center table-bordered border-secondary">
+          <thead>
+            <tr>
+              <th scope="col">Category</th>
+              <th scope="col">Manage</th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            <% for (const category of categories) { %>
+              <% const i = categories.indexOf(category) %>
+              <tr>
+                <td><%= category.title %></td>
+                <td>
+                  <section class="d-inline-flex">
+                    <button
+                      type="button"
+                      class="btn btn-alt"
+                      data-bs-toggle="modal"
+                      data-bs-target="#categoryModal<%= i %>"
+                    >
+                      <i class="fa-solid fa-pen-to-square"></i>
+                    </button>
+    
+                    <button 
+                      type="button"
+                      class="btn btn-alt mx-2"
+                      data-bs-toggle="modal"
+                      data-bs-target="#YesNoModal<%= i %>"
+                    >
+                      <i class="fa-solid fa-trash"></i>
+                    </button>
+    
+                    <a class="btn btn-alt" href="/categories/<%= category.id %>">
+                      <i class="fa-solid fa-list"></i>
+                    </a>
+                  </section>
+                </td>
+              </tr>
+              <%- include('../../admin/popup/yes-no-popup', { submitPath: '/admin/categories/delete/' + category.id, message: 'delete this category?', i: i }) %>
+              <%- include('includes/category-form', { submitPath: '/admin/categories/' + category.id, title: 'Update category', i: i, category: category }) %>
+            <% } %>
+          </tbody>
+        </table>
+      <% } %>
+    </section>
+    <% if(firstTime) { %>
+      <%- include('../popup/notification', { message: "Login successful 🎉", isError: false }) %>
+    <% } %>
+    <% if(!firstTime && message) { %>
+      <%- include('../../admin/popup/notification', { message: message, isError: false }) %>
+    <% } %>
+  </main>
+<%- include('../../shared/page/footer') %>
