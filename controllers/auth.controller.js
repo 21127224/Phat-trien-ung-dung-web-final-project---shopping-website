@@ -1,5 +1,5 @@
 const User = require("../models/user.model");
-//const authUtil = require("../util/authentication");
+const authUtil = require("../util/authentication");
 const sessionFlash = require("../util/session-flash");
 
 function getSignup(req, res) {
@@ -77,18 +77,20 @@ async function signup(req, res, next) {
     }
 
     const firstUser = await User.findFirstNormal();
-    console.log(firstUser);
+    console.log("first user",firstUser);
 
     if (firstUser) {
       await user.signup(false);
-      res.redirect(
-        `https://localhost:5000/?username=${req.body.username}&login=1`
-      );
+      // res.redirect(
+      //   `https://localhost:8184/?username=${req.body.username}&login=1`
+      // );
+      res.redirect("/login")
     } else {
       await user.signup(true);
-      res.redirect(
-        `https://localhost:5000/?username=${req.body.username}&isAdmin=1&login=1`
-      );
+      // res.redirect(
+      //   `https://localhost:8184/?username=${req.body.username}&isAdmin=1&login=1`
+      // );
+      res.redirect("/login")
     }
   } catch (error) {
     return next(error);
