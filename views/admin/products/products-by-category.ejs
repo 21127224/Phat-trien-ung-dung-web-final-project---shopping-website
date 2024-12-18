@@ -1,0 +1,75 @@
+<%- include('../../shared/page/head', { pageTitle: 'All Products' }) %>
+<link rel="stylesheet" href="/styles/products.css">
+<script src="/scripts/image-preview.js" defer></script>
+
+</head>
+<body>
+  <%- include('../../shared/page/header') %>
+  <main>
+    <h1 class="my-2">Product Management</h1>   
+    <p>
+      <button type="button" class="btn btn-solid mt-3" data-bs-toggle="modal" data-bs-target="#productModal">
+        <i class="fa-solid fa-circle-plus me-1"></i>
+        Add Product
+      </button>
+
+      <%- include('includes/product-form', { submitPath: '/admin/products', title: 'Add new product', i: '', product: {
+        title: '',
+        imageUrl: '',
+        summary: '',
+        price: 500,
+        description: ''
+      }, imageRequired: true }) %>
+    </p>
+
+    <% if(products.length === 0) { %>
+      <i><h4 class="text-center text-secondary mt-5">No products are available</h4></i>
+    <%} else { %>
+      <ul class="gap-3 products-grid products-mobile">
+        <% for (let i = 0; i < products.length; ++i) { %>
+          <li>
+            <%- include('../../shared/page/product-item', { product: products[i], i: i + '-mobile', category: category }) %>
+          </li>
+        <% } %>
+      </ul>
+
+      <ul class="gap-3 products-grid products-pc">
+        <% for (let i = start; i < end; ++i) { %>
+          <li>
+            <%- include('../../shared/page/product-item', { product: products[i], i: i, category: category }) %>
+          </li>
+        <% } %>
+      </ul>
+
+      <ul class="pagination mb-3">
+        <li class="page-item">
+          <a class="btn btn-alt rounded-0 rounded-start-2 page-link" href="/categories/<%= category.id %>?page=<%= page <= 1 ? 1 : page - 1 %>" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+  
+        <% for (let i = 1; i <= total_page; ++i) { %>
+          <% if (i === page) { %>
+            <li class="page-item">
+              <a class="btn btn-solid rounded-0 page-link" href="/categories/<%= category.id %>?page=<%= i%>"><%= i%></a>
+            </li>
+          <% } else { %>
+            <li class="page-item">
+              <a class="btn btn-alt rounded-0 page-link" href="/categories/<%= category.id %>?page=<%= i%>"><%= i%></a>
+            </li>
+          <% } %>
+        <% } %>
+  
+        <li class="page-item">
+          <a class="btn btn-alt rounded-0 rounded-end-2 page-link" href="/categories/<%= category.id %>?page=<%= page >= total_page ? total_page : page + 1 %>" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    <% } %>
+
+    <% if(message) { %>
+      <%- include('../../admin/popup/notification', { message: message, isError: false }) %>
+    <% } %>
+  </main>
+<%- include('../../shared/page/footer') %>

@@ -1,0 +1,132 @@
+<link rel="stylesheet" href="/styles/forms.css" />
+
+<form
+  action="<%= submitPath %>?_csrf=<%= locals.csrfToken %>"
+  method="POST"
+  enctype="multipart/form-data"
+>
+  <div
+    class="modal fade"
+    id="productModal<%= i %>"
+    tabindex="-1"
+    aria-labelledby="productModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 text-black" id="productModalLabel">
+            <%= title %>
+          </h1>
+          <button
+            type="reset"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body text-black">
+          <p class="mb-2">
+            <label for="title" class="fw-semibold d-block mb-2"
+              >Title (<span class="text-danger">*</span>)</label
+            >
+            <input
+              type="text"
+              id="title"
+              name="title"
+              value="<%= product.title %>"
+              class="form-control"
+              required
+            />
+          </p>
+
+          <input
+            id="cateId"
+            name="cateId"
+            value="<%= category.id %>"
+            class="d-none"
+          />
+          <p class="fw-medium mb-2">
+            Category:
+            <span class="badge py-2 bg-success"><%= category.title %></span>
+          </p>
+
+          <section class="image-upload-control d-flex align-items-center">
+            <p class="mb-2">
+              <label for="image" class="fw-semibold d-block mb-2"
+                >Image (<span class="text-danger">*</span>)</label
+              >
+              <input type="file" accept="image/png,image/jpg" id="image"
+              name="image" class="border-0" <%= imageRequired ? 'required' : ''
+              %> />
+            </p>
+
+            <img
+              src="<%= product.imageUrl %>"
+              alt="Selected image."
+              class="rounded-1"
+            />
+          </section>
+
+          <p class="mb-2">
+            <label for="summary" class="fw-semibold d-block mb-2"
+              >Summary (<span class="text-danger">*</span>)</label
+            >
+            <input
+              type="text"
+              id="summary"
+              name="summary"
+              value="<%= product.summary %>"
+              class="form-control"
+              required
+              maxlength="250"
+            />
+          </p>
+
+          <p class="mb-2">
+            <label for="price" class="fw-semibold d-block mb-2"
+              >Price (<span class="text-danger">*</span>)</label
+            >
+            <input
+              type="number"
+              id="price"
+              name="price"
+              value="<%= product.price %>"
+              min="500"
+              step="500"
+              class="form-control"
+              required
+            />
+          </p>
+
+          <p class="mb-2">
+            <label for="description" class="fw-semibold d-block mb-2"
+              >Description (<span class="text-danger">*</span>)</label
+            >
+            <textarea
+              id="description"
+              name="description"
+              rows="5"
+              class="form-control"
+              required
+            >
+<%= product.description %></textarea
+            >
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="reset"
+            class="btn btn-alt text-secondary border-secondary"
+          >
+            <i class="fa-solid fa-arrow-rotate-right"></i> Reset
+          </button>
+          <button class="btn bg-primary border-primary">
+            <i class="fa-solid fa-check"></i>
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
