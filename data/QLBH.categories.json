@@ -1,0 +1,32 @@
+[
+  {
+    "_id": {
+      "$oid": "65981f291a79441c3f4f02f9"
+    },
+    "title": "Quần áo"
+  },
+  {
+    "_id": {
+      "$oid": "65981f2d1a79441c3f4f02fa"
+    },
+    "title": "Trang sức"
+  },
+  {
+    "_id": {
+      "$oid": "659824e18cfc293b47c0e45f"
+    },
+    "title": "Thức ăn"
+  },
+  {
+    "_id": {
+      "$oid": "65993845c4a1fa28cd8ffb09"
+    },
+    "title": "Thức uống"
+  },
+  {
+    "_id": {
+      "$oid": "65993866c4a1fa28cd8ffb0b"
+    },
+    "title": "Sách"
+  }
+]

@@ -1,0 +1,325 @@
+[{
+  "_id": {
+    "$oid": "659940ec7bbd246bbe722ef5"
+  },
+  "title": "Áo T-SHIRTS ZOE AUTHENTIC đen",
+  "cateId": {
+    "$oid": "65981f291a79441c3f4f02f9"
+  },
+  "summary": "Đây là cái áo thun cho nữ",
+  "price": 295000,
+  "description": "Màu sắc: Đen, Xám, Trắng, Be\r\nChất liệu: Cotton 100% - 250gsm \r\nKích Thước: S, M, L \r\nKiểu dáng: Boxy T-shirt \r\nThiết kế: Hình in mặt trước áp dụng công nghệ in lụa silicon và logo phía sau áo",
+  "image": "83aeb834-642c-47fc-8554-55cb177d8b75-Screenshot 2024-01-06 190038.png"
+},
+{
+  "_id": {
+    "$oid": "659941bd7bbd246bbe722ef6"
+  },
+  "title": "Áo liền quần dài tay dài chân",
+  "cateId": {
+    "$oid": "65981f291a79441c3f4f02f9"
+  },
+  "summary": "Áo ngủ dễ thương cho bé trai",
+  "price": 399000,
+  "description": "Chất liệu:\t100% Cotton Knitted\r\nHDSD & BQ: Lộn mặt trái sản phẩm trước khi giặt, giặt chung với các sản phẩm cùng màu. Tránh giặt bằng máy, không ngâm trong nước quá lâu. Tránh tiếp xúc với các chất liệu gây loang màu, không sử dụng các chất tẩy rửa.\r\nThương hiệu: mothercare\r\nGiới tính: bé trai\r\nMàu sắc: xanh",
+  "image": "cc2babcf-7694-4d10-886f-831155274151-Screenshot 2024-01-06 190230.png"
+},
+{
+  "_id": {
+    "$oid": "659942787bbd246bbe722ef7"
+  },
+  "title": "Áo Sơ Mi Dài Tay Trắng Sáng",
+  "cateId": {
+    "$oid": "65981f291a79441c3f4f02f9"
+  },
+  "summary": "Áo sơ mi trắng cho nam",
+  "price": 745000,
+  "description": "- Áo Sơ Mi Tay Dài Valentino Creations - VSSS-DK00309S-B-GY1\r\n- Thiết kế áo sơ mi tay ngắn năng động từ thương hiệu thời trang nam công sở Valentino Creations. Sản phẩm sử dụng công nghệ cắt laser và công nghệ đúc nhiệt giúp giảm thiểu đường may trên áo.\r\n- Sản phẩm nhẹ, thoáng mát giúp người mặc luôn cảm thấy thoải mái nhất trong mùa hè.\r\n- Họa tiết trẻ trung, dễ kết hợp với nhiều phong cách khác nhau.\r\n- Chất liệu: Thun mix cao cấp.",
+  "image": "83d42a85-199a-4703-9026-86604258a235-Screenshot 2024-01-06 190511.png"
+},
+{
+  "_id": {
+    "$oid": "659943317bbd246bbe722ef8"
+  },
+  "title": "MẶT DÂY CHUYỀN KIM CƯƠNG 18K",
+  "cateId": {
+    "$oid": "65981f2d1a79441c3f4f02fa"
+  },
+  "summary": "Dây chuyền kim cương siêu sang trọng",
+  "price": 5508000,
+  "description": "- Thương hiệu: Jemmia\r\n- Loại sản phẩm: Mặt dây chuyền\r\n- Kích thước đá chủ: Round 6ly3\r\n- Loại đá tấm: Kim cương\r\n- Số lượng đá tấm: 3\r\n- Trọng lượng đá (ct): 0.03\r\n- Loại vàng: Vàng trắng\r\n- Tuổi vàng: 18K\r\n- Trọng lượng vàng: 0.2 chỉ",
+  "image": "62a90975-bbe3-4305-8bca-be93c96755d1-Screenshot 2024-01-06 190817.png"
+},
+{
+  "_id": {
+    "$oid": "65994d3050fb028905bb7968"
+  },
+  "title": "NHẪN KIM CƯƠNG NỮ 18K",
+  "cateId": {
+    "$oid": "65981f2d1a79441c3f4f02fa"
+  },
+  "summary": "Nhẫn kim cương sang trọng",
+  "price": 27612000,
+  "description": "- Thương hiệu: Jemmia\r\n- Loại sản phẩm: Nhẫn\r\n- Kích thước đá chủ: Round 5ly\r\n- Loại đá tấm: Kim cương\r\n- Số lượng đá tấm: 31\r\n- Trọng lượng đá (ct): 0.6\r\n- Loại vàng: Vàng trắng\r\n- Tuổi vàng: 18K\r\n- Trọng lượng vàng: 1.0 chỉ",
+  "image": "2fd3f4ee-d294-403c-9a67-2067adb50319-Screenshot 2024-01-06 195102.png"
+},
+{
+  "_id": {
+    "$oid": "65994dcc50fb028905bb7969"
+  },
+  "title": "BÔNG TAI KIM CƯƠNG 18K",
+  "cateId": {
+    "$oid": "65981f2d1a79441c3f4f02fa"
+  },
+  "summary": "Bông tai nữ sang trọng",
+  "price": 32139000,
+  "description": "- Thương hiệu: Jemmia\r\n- Loại sản phẩm: Bông tai\r\n- Kích thước đá chủ: Round 4ly6\r\n- Loại đá tấm: Kim cương\r\n- Số lượng đá tấm: 64\r\n- Trọng lượng đá (ct): 1.0\r\n- Loại vàng: Vàng trắng\r\n- Tuổi vàng: 18K\r\n- Trọng lượng vàng: 0.9 chỉ",
+  "image": "8a5c5a44-2a2e-4721-b697-001d74d94393-Screenshot 2024-01-06 195356.png"
+},
+{
+  "_id": {
+    "$oid": "65994e6350fb028905bb796a"
+  },
+  "title": "CHUỖI NGỌC TRAI SIZE 10MM",
+  "cateId": {
+    "$oid": "65981f2d1a79441c3f4f02fa"
+  },
+  "summary": "Chuỗi ngọc trai đen óng ánh",
+  "price": 3500000,
+  "description": "Loại ngọc: ngọc trai nước ngọt\r\nMàu sắc: trắng, đen, pha màu\r\nHình dạng: tròn\r\nKích thước: ~10mm\r\nĐộ dài: 42-45cm",
+  "image": "149b5f37-9f9f-4e90-bbaa-efe6c08b0864-Screenshot 2024-01-06 195723.png"
+},
+{
+  "_id": {
+    "$oid": "65994f1750fb028905bb796b"
+  },
+  "title": "LẮC TAY SWAROVSKI THIÊN NGA",
+  "cateId": {
+    "$oid": "65981f2d1a79441c3f4f02fa"
+  },
+  "summary": "Lắc tay sang trọng, lấp lánh",
+  "price": 3200000,
+  "description": "Thương hiệu: Swarovski (Áo)\r\nBộ sưu tập: Dazzling Swan\r\nArticle no: 5485876, 5472271, 5563465\r\nMàu sắc: Xanh dương – Bạc, Hồng – Vàng hồng\r\nChu vi: 18cm (Có hỗ trợ cắt ngắn)\r\nChất liệu: Pha lê Swarovski®, Đá Zirconia, mạ Rhodium hoặc Vàng 18K, Nam châm\r\nKiểu khóa: Nam châm",
+  "image": "47df72fb-4379-4e5a-97ae-9f4dd4a2ea8e-Screenshot 2024-01-06 195929.png"
+},
+{
+  "_id": {
+    "$oid": "65995160ecf0ec87e1edf6d5"
+  },
+  "title": "Xúc xích đức Nemo 500gr",
+  "cateId": {
+    "$oid": "659824e18cfc293b47c0e45f"
+  },
+  "summary": "Xúc xích heo cực ngon từ Đức",
+  "price": 33000,
+  "description": "- Xúc xích đức Nemo 500gr là một sản phẩm của Fritz-food, được làm từ thịt lợn. Sản phẩm này có hương vị đặc trưng của xúc xích và độ ngọt béo của thịt, tạo nên một món ăn vặt khoái khẩu của trẻ em và những “tín đồ” mê xúc xích.\r\n- Xúc xích đức Nemo 500gr có thể được chế biến theo nhiều cách khác nhau, tùy thuộc vào khẩu vị của người dùng. Một số công thức phổ biến bao gồm xúc xích đức Nemo chiên giòn, xúc xích đức Nemo nướng, hay xúc xích đức Nemo trộn salad.",
+  "image": "f9ab7773-bdac-408d-916a-eaf8c2a2bbe3-Screenshot 2024-01-06 200950.png"
+},
+{
+  "_id": {
+    "$oid": "659951dbecf0ec87e1edf6d6"
+  },
+  "title": "Ngũ cốc Calbee đỏ 800g",
+  "cateId": {
+    "$oid": "659824e18cfc293b47c0e45f"
+  },
+  "summary": "Ngũ cốc đỏ giòn tan",
+  "price": 150000,
+  "description": "- Thương hiệu: Calbee\r\n- Xuất xứ: Nhật Bản\r\n- Thành phần:  Yến mạch, dâu tây, táo đỏ, đu đủ, nho, bí đỏ, dừa non…\r\n- Khối lượng: 800g (mẫu tặng 50g – giá không đổi)\r\n- Quy cách đóng gói: Túi zip màu đỏ\r\n- Hạn sử dụng: 6 tháng\r\n- Mẹo: Nên sử dụng hết trong vòng 1 tháng kể từ khi mở nắp hộp để đảm bảo hạt luôn giòn, ngon chất lượng.",
+  "image": "2b08286d-4917-4d22-b14f-518e07d13b18-Screenshot 2024-01-06 201156.png"
+},
+{
+  "_id": {
+    "$oid": "65995261ecf0ec87e1edf6d7"
+  },
+  "title": "Nhân hạt Óc chó vàng",
+  "cateId": {
+    "$oid": "659824e18cfc293b47c0e45f"
+  },
+  "summary": "Hạt óc chó giòn nhập khẩu từ Mỹ",
+  "price": 210000,
+  "description": "- Thương hiệu: Dananut\r\n- Xuất xứ: Mỹ\r\n- Thành phần: 100% nhân hạt óc vàng Mỹ (Hạt óc chó tách vỏ nhập khẩu Mỹ)\r\n- Khối lượng: Đa dạng khối lượng 110g – 200g – 350g – 500g\r\n- Đóng gói: Tại Việt Nam.\r\n- Quy cách đóng gói: Nhân hạt óc chó vàng Mỹ tại Dananut được đóng trong hũ nhựa nắp nhôm hiện đại, có dán màng seal và kèm theo gói chống ẩm.\r\n- Hạn sử dụng: 12 tháng kể từ ngày đóng hộp. Nên sử dụng hết trong vòng 1 tháng kể từ khi mở nắp hộp để đảm bảo hạt luôn ngon chất lượng, giữ được nguyên vị tự nhiên.",
+  "image": "8fb55455-2fb4-492b-9f38-b97c1dec77bf-Screenshot 2024-01-06 201400.png"
+},
+{
+  "_id": {
+    "$oid": "659952e2ecf0ec87e1edf6d8"
+  },
+  "title": "Bánh Pía kim sa",
+  "cateId": {
+    "$oid": "659824e18cfc293b47c0e45f"
+  },
+  "summary": "Bánh Pía dai ngon đến miếng cuối cùng",
+  "price": 110000,
+  "description": "- Nguyên liệu thật: 100% Đậu xanh, Sầu riêng tươi, Cốt là dứa tươi tự nhiên\r\n- Chuẩn mực cao: sản xuất trên dây chuyền sạch tự động, trước khi đóng gói được khử trùng qua tia cực tím theo tiêu chuẩn ISO.\r\n- Công nghệ sạch hiện đại: Công nghệ tự động nhập khẩu từ Nhật Bản, môi trường sạch tiệt trùng, an toàn.\r\n- Tách béo, giảm ngọt: Áp dụng công nghệ thực phẩm của Hoa Kỳ, tách béo giảm ngọt tốt cho sức khỏe.",
+  "image": "6af15e62-f146-4184-bbed-136df6a2ba9d-Screenshot 2024-01-06 201605.png"
+},
+{
+  "_id": {
+    "$oid": "6599536aecf0ec87e1edf6d9"
+  },
+  "title": "Yến Mạch Quaker Oats",
+  "cateId": {
+    "$oid": "659824e18cfc293b47c0e45f"
+  },
+  "summary": "Yến mạch Quaker Oats hỗ trợ giảm cân, cải thiện sức khỏe tim mạch, hệ tiêu hóa.",
+  "price": 250000,
+  "description": "- Trọng lượng : 10 lbs ~ 4.54 kg\r\n- Hàm lượng : 150kcal, 5g Protein, 27g Carb, 4g Chất xơ, 3g Chất béo\r\n- Liều dùng : 40 gram/ lần dùng\r\n- Thành phần chính : 100% yến mạch tự nhiên\r\n- Số lần dùng ( servings ) : 110 lần\r\n- Thương hiệu : Quaker",
+  "image": "b563385a-dd8c-48fa-8824-ee690fd5d443-Screenshot 2024-01-06 201758.png"
+},
+{
+  "_id": {
+    "$oid": "659953ddecf0ec87e1edf6da"
+  },
+  "title": "Mật Ong Hoa Cà Phê nguyên chất Cát Tiên Farm",
+  "cateId": {
+    "$oid": "65993845c4a1fa28cd8ffb09"
+  },
+  "summary": "Mật ong hoa cà phê Cát Tiên Farm là một sản phẩm độc đáo được khai thác trong khoảng thời gian tháng 2 đến tháng 4 hàng năm, từ các nông trại cà phê ở Đồng Nai, Lâm Đồng và Tây Nguyên.",
+  "price": 140000,
+  "description": "- Xuất xứ: Đồng Nai, Lâm Đồng, Tây Nguyên\r\n- Thành phần: Mật ong hoa cà phê 100% nguyên chất\r\n- Thời điểm khai thác : Tháng 2 - 4 hàng năm\r\n- Đóng gói : Chai nhựa 1 lít và 500ml\r\n- Trọng lượng: 1420gr thể tích 1000ml và 710gr thể tích 500ml\r\n- Hạn sử dụng: 3 năm ( in trên bao bì )\r\n- Bảo quản : Nơi khô thoáng. Không bảo quản trong tủ lạnh, mật ong có thể kết tinh khi gặp lạnh, để lấy mật ngâm chai trong nước nóng 70 độ C trong 30 phút, lắc đều để mật ong giảm tình trạng kết tinh.",
+  "image": "6b7161ea-3e73-4f89-847c-da131728d247-Screenshot 2024-01-06 202030.png"
+},
+{
+  "_id": {
+    "$oid": "65995452ecf0ec87e1edf6db"
+  },
+  "title": "Nước Viva bình 18,5 lít",
+  "cateId": {
+    "$oid": "65993845c4a1fa28cd8ffb09"
+  },
+  "summary": "Chất lượng vượt trội : Sản phẩm nước uống đóng chai bằng một quy trình kép kín vô cùng khắt khe",
+  "price": 60000,
+  "description": "- Loại nước: Nước Viva 18.5 Lít\r\n- Nhà sản xuất: Tập đoàn Nestlé Water\r\n- Dung tích: Bình 18.5 Lít\r\n- Đóng gói: 1 bình\r\n- Bảo quản: Nơi khô ráo và thoáng mát\r\n- Hạn sử dụng: 12 tháng kể từ ngày sản xuất\r\n- Giao hàng: Giao hàng miễn phí với số lượng 5 bình trở lên",
+  "image": "5ff7fa7c-b78a-4ce6-b8b0-66ac3a9eeb77-Screenshot 2024-01-06 202232.png"
+},
+{
+  "_id": {
+    "$oid": "659955f6ecf0ec87e1edf6dc"
+  },
+  "title": "SỮA TƯƠI THANH TRÙNG VINAMILK GREEN FARM RẤT ÍT ĐƯỜNG",
+  "cateId": {
+    "$oid": "65993845c4a1fa28cd8ffb09"
+  },
+  "summary": "Mịn màng – mê mãi, từ trang trại đến bàn ăn trong vòng 24 tiếng, Green Farm Thanh Trùng đầy đặn mượt mà, mang hương vị thổ nhưỡng của những cánh đồng sinh thái.",
+  "price": 37000,
+  "description": "- Thành Phần: Sữa tươi (100%)\r\n- Giá trị dinh dưỡng trung bình trong 100 ml*\r\nNĂNG LƯỢNG: 62,6 kcal\r\nCHẤT BÉO: 3,8 g\r\nCHẤT ĐẠM: 3,2 g\r\nHYĐRAT CACBON: 4,4 g\r\nCALCI: 110 mg\r\nPHOSPHO: 85 mg\r\nMagnesi: 10 mg\r\nVitamin A: 145 IU\r\nVitamin B2: 125 ug",
+  "image": "cd5b7f14-87c9-48c0-83f2-d9b8be50550a-Screenshot 2024-01-06 202839.png"
+},
+{
+  "_id": {
+    "$oid": "6599566decf0ec87e1edf6dd"
+  },
+  "title": "Nước Ngọt COCA COLA Nắp Vặn",
+  "cateId": {
+    "$oid": "65993845c4a1fa28cd8ffb09"
+  },
+  "summary": "Coca cola Nhật Bản là sản phẩm được phân phối dành riêng cho thị trường nội địa Nhật Bản, được thiết kế dạng chai và nắp vặn bằng nhôm nên rất nhanh lạnh và có thể tái sử dụng nhiều lần.",
+  "price": 500000,
+  "description": "- Thành phần: nước, CO2, chất tạo màu caramel, chất tạo hương vị: vanilla, cinnamon, citrus, chất làm ngọt: đường, syrup hay chất làm ngọt nhân tạo, chất bảo quản. Cocacola có môi trường acid.\r\n- Cách sử dụng:\r\nDùng trực tiếp.\r\nNgon hơn khi uống lạnh.\r\nBảo quản nơi khô ráo thoáng mát. \r\nTránh ánh nắng trực tiếp.",
+  "image": "10dafb29-a842-4421-a579-02f81006a3c8-Screenshot 2024-01-06 203110.png"
+},
+{
+  "_id": {
+    "$oid": "659956deecf0ec87e1edf6de"
+  },
+  "title": "Hộp 5 Gói Nước Hồng Sâm Won KGC Jung Kwan Jang",
+  "cateId": {
+    "$oid": "65993845c4a1fa28cd8ffb09"
+  },
+  "summary": "Nước Hồng Sâm Won KGC Jung Kwan Jang là sản phẩm dinh dưỡng chứa thành phần tinh chất hồng sâm đậm đặc 6 năm tuổi.",
+  "price": 200000,
+  "description": "- Nước Hồng Sâm Hàn Quốc là sản phẩm được làm từ củ hồng sâm 6 năm tuổi đã qua kiểm tra tuyển chọn nghiêm ngặt bởi các bậc thầy về hồng sâm và kỹ thuật bào chế hơn 120 năm.\r\n- Xuất xứ: Hàn Quốc\r\n- Ngày sản xuất: In trên bao bì sản phẩm\r\n- Hạn sử dụng: 2 năm kể từ ngày sản xuất\r\n- Quy cách đóng gói: Hộp 5 gói/70ml",
+  "image": "704bf1f6-7fbe-490a-b757-b239e0583244-Screenshot 2024-01-06 203303.png"
+},
+{
+  "_id": {
+    "$oid": "6599573becf0ec87e1edf6df"
+  },
+  "title": "Tết Ở Làng Địa Ngục",
+  "cateId": {
+    "$oid": "65993866c4a1fa28cd8ffb0b"
+  },
+  "summary": "Đây là truyện siêu kinh dị",
+  "price": 116000,
+  "description": "- SKU: 8935212358279\r\n- TÁC GIẢ: THẢO TRANG\r\n- NHÀ XUẤT BẢN: NXB THANH NIÊN",
+  "image": "acf8f0f0-40a0-43e7-bbcf-862c6902d594-Screenshot 2024-01-06 203452.png"
+},
+{
+  "_id": {
+    "$oid": "6599579fecf0ec87e1edf6e0"
+  },
+  "title": "Dám Nghĩ Lại",
+  "cateId": {
+    "$oid": "65993866c4a1fa28cd8ffb0b"
+  },
+  "summary": "Dám Nghĩ Lại – Qua 11 chương sách, độc giả được Adam Grant dẫn dắt qua những cột mốc trên chặng đường khám phá kỹ năng tái tư duy. ",
+  "price": 123000,
+  "description": "Từ xuất phát điểm là “chọn sự nhàn hạ của việc giữ nguyên những nhận thức thay vì vật lộn với những cái mới”, bạn sẽ từng bước sẵn sàng cập nhật quan điểm của bản thân, khai mở tư duy của người khác để cùng tạo ra những cộng đồng học tập suốt đời. Sau cùng, Adam Grand muốn hướng bạn đọc đến hành trình tự suy xét lại các kế hoạch của bản thân để từ đó, đưa ra được những quyết định đúng đắn.",
+  "image": "c2c3e65b-3973-46e1-a6db-6d0ac91d3101-Screenshot 2024-01-06 203640.png"
+},
+{
+  "_id": {
+    "$oid": "6599580eecf0ec87e1edf6e1"
+  },
+  "title": "Tìm Về Bản Sắc Văn Hóa Việt Nam",
+  "cateId": {
+    "$oid": "65993866c4a1fa28cd8ffb0b"
+  },
+  "summary": "Tác giả cuốn sách Tìm về bản sắc văn hóa Việt Nam: cái nhìn hệ thống – loại hình mà tôi đang giới thiệu với các bạn – Tiến sĩ khoa học Trần Ngọc Thêm – vốn xuất thân là một nhà ngôn ngữ toán rồi trở thành một chu",
+  "price": 400000,
+  "description": "- Tựa sách: Tìm Về Bản Sắc Văn Hóa Việt Nam\r\n- Nhà xuất bản: NXB Tổng Hợp 2001\r\n- Tác giả: Trần Ngọc Thêm\r\n- 705 Trang",
+  "image": "d7ac6373-d872-4ae3-8ab1-dba440cabdc7-Screenshot 2024-01-06 203805.png"
+},
+{
+  "_id": {
+    "$oid": "65995878ecf0ec87e1edf6e2"
+  },
+  "title": "7 Cuốn Luyện Não Trong 1 Phút",
+  "cateId": {
+    "$oid": "65993866c4a1fa28cd8ffb0b"
+  },
+  "summary": "Bộ sách “Combo Siêu Trí Tuệ – 7 Cuốn Sách Rèn Kỹ Năng Trong 1 Phút Bán Chạy Nhất Nhật Bản” này được viết bởi 2 tác giả nổi tiếng là Takashi Ishii và Katsumi Nishimura nằm trong Tủ Sách kỹ năng – Hướng nghiệp",
+  "price": 498000,
+  "description": "Combo sách này không chỉ giúp bạn rèn luyện để có một tư duy nhanh nhạy, suy nghĩ thấu đáo và giải quyết được mọi vấn đề chỉ trong 1 PHÚT. Mà những kỹ năng mà combo sách còn này mang lại cho bạn các phương pháp tinh gọn như người Nhật như:\r\n- Bạn có thể học được thêm rất nhiều bài học bổ ích để sau này ra đời không còn bỡ ngỡ nữa\r\n- Đưa ra quyết định nhanh chóng và sáng suốt, giải quyết mọi vấn đề chỉ trong một phút\r\n- Ghi nhớ và ghi chép cực nhanh, có khoa học\r\n- Lưu giữ được những ý tưởng nảy ra bất chợt, giúp bạn trở thành một người có khả năng sáng tạo vô bờ bến\r\n- Biết cách lập kế hoạch, đưa ra chiến lược phát triển thông minh nhất trong kinh doanh\r\n- Nhìn vấn đề ở một cách tổng thể, lường trước được những gì mình sẽ gặp phải, ví dụ trực quan từ những doanh nghiệp nổi tiếng\r\n- Trở thành một người giỏi nói chuyện, mỗi câu nói đều lôi cuốn và thuyết phục, dễ dàng chiếm được lòng tin của người nghe",
+  "image": "e525c2c6-612f-405f-9e49-449421c468f8-Screenshot 2024-01-06 203956.png"
+},
+{
+  "_id": {
+    "$oid": "659958e1ecf0ec87e1edf6e3"
+  },
+  "title": "Người Giàu Có Nhất Thành Babylon",
+  "cateId": {
+    "$oid": "65993866c4a1fa28cd8ffb0b"
+  },
+  "summary": "Người giàu có nhất thành Babylon (tiếng Anh: The Richest Man in Babylon) được xem là một trong những tác phẩm truyền cảm hứng lớn nhất về chủ đề tiết kiệm, kế hoạch tài chính và sự giàu có cá nhân.",
+  "price": 45000,
+  "description": "- Tác phẩm được viết bởi doanh nhân, nhà văn Mỹ George Samuel Clason vào năm 1926, kể về cách tiết kiệm, buôn bán và làm giàu của người dân ở thành Babylon cổ xưa.\r\n- Ban đầu đây chỉ là một tập sách nhỏ, viết về các cách quản lý tài chính và do các ngân hàng và công ty bảo hiểm phân phối. Sau khi được tổng hợp, biên tập thành một cuốn sách trọn vẹn, “Người giàu có nhất thành Babylon” bất ngờ trở nên phổ biến và nổi tiếng trên toàn thế giới bởi những lời khuyên về quản lý tài chính hết sức khôn ngoan.\r\n- Cuốn sách tập hợp nhiều câu chuyện cổ về các nhân vật vươn lên từ nghèo khổ để trở nên giàu có, được kính trọng bậc nhất thành Babylon. Có thể kể đến câu chuyện của “người giàu có nhất thành Babylon” Arkad – một thợ khắc gỗ khi còn trẻ, hay người cho vay vàng Mathon, những người nô lệ như Dabasir, Megiddo, Sharru Nada,…\r\n- Các bí quyết tài chính quan trọng nhất được cuốn sách tiết lộ bao gồm: 7 cách để chữa trị một túi tiền xẹp lép, 5 quy luật của vàng, công thức tích lũy theo tỷ lệ 1/10. Ngoài ra, cuốn sách còn đưa ra nhiều lời khuyên hữu ích về cách kiểm soát những khoản chi tiêu, làm cho vàng sinh lợi, gìn giữ tài sản, đảm bảo nguồn thu nhập lâu dài,…",
+  "image": "e874af85-ca7f-49d9-898d-46bfb72c3634-Screenshot 2024-01-06 204143.png"
+},
+{
+  "_id": {
+    "$oid": "65a4e3969bdbb3db37da3039"
+  },
+  "title": "Áo Khoác Travis Scott x Jordan Varsity ‘Antique Brown’",
+  "cateId": {
+    "$oid": "65981f291a79441c3f4f02f9"
+  },
+  "summary": "Áo khoác Travis Scott x Jordan Varsity ‘Antique Brown’ DO4104-256 là một sản phẩm hợp tác giữa thương hiệu Jordan và nghệ sĩ rapper Travis Scott, mang đến phong cách độc đáo và táo bạo.",
+  "price": 26490000,
+  "description": "- Áo khoác có màu nâu cổ điển với đường viền màu xanh đậm ở cổ áo, tay áo và thân áo, tạo nên một vẻ ngoài đẳng cấp và bụi bặm. Chất liệu cao cấp được sử dụng để tạo nên áo khoác có độ bền và chất lượng tốt. Áo khoác có kiểu dáng varsity jacket với tay áo dài, cổ áo bằng da và khóa kéo bằng kim loại chắc chắn.\r\n- Áo khoác Travis Scott x Jordan Varsity ‘Antique Brown’ DO4104-256 được thể hiện qua các chi tiết đặc trưng của Travis Scott như các logo “Cactus Jack” và “Jumpman” được thêu hoặc in ấn trên áo khoác, tạo nên một điểm nhấn độc đáo và sáng tạo. Ngoài ra, áo khoác còn có một túi lớn ở phía trước để đựng vật dụng.\r\n- Đây là một sản phẩm thời trang độc quyền và giới hạn, thể hiện phong cách cá nhân và sự sáng tạo của Travis Scott. Áo khoác Travis Scott x Jordan Varsity ‘Antique Brown’ DO4104-256 sẽ làm hài lòng những người hâm mộ và người yêu thích phong cách thời trang độc đáo. Sản phẩm này phù hợp để kết hợp với các bộ trang phục thể thao hoặc đường phố, mang đến phong cách cá nhân và nổi bật.\r\n- Sẽ là rất tiếc nếu bạn bỏ lỡ cơ hội sở hữu cho mình chiếc Áo Khoác Travis Scott x Jordan Varsity ‘Antique Brown’ đầy cá tính để làm phong phú tủ đồ của mình trong hôm nay. Hãy nhanh chóng lựa chọn cho mình một thiết kế áo Nike ưng ý nhất tại Sneaker Daily nhé!\r\n- Cập nhật nhanh nhất lịch ra mắt của các mẫu áo mới nhất và tin tức thời trang trong nước và trên thế giới bằng cách theo dõi Sneaker Daily trên Facebook hoặc Instagram.",
+  "image": "38f34696-1579-4857-a5f2-ca758e470db7-Screenshot 2024-01-15 144750.png"
+},
+{
+  "_id": {
+    "$oid": "65a4e49c9bdbb3db37da303a"
+  },
+  "title": "Quần Shorts Nam Chạy Bộ Coolmate Basics",
+  "cateId": {
+    "$oid": "65981f291a79441c3f4f02f9"
+  },
+  "summary": "Quần ngắn thun siêu co giãn, cực đẹp, cực thoải mái cho các bạn nam",
+  "price": 99000,
+  "description": "- Chất liệu: 100% Polyester thoáng mát\r\n- Thiết kế dáng xẻ tà tăng cường thoải mái khi vận động\r\n- Cạp chun đàn hồi với dây rút bên trong\r\n- Chiều dài quần: 5\"\r\n- Người mẫu: 180cm - 80kg, mặc quần size 2XL\r\n- Tự hào sản xuất tại Việt Nam",
+  "image": "52b992dc-7192-4e44-b667-18c56d790e2f-Screenshot 2024-01-15 145110.png"
+}]
