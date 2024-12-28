@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="/styles/forms.css" />
+
+<article class="order-item rounded-2 p-3 my-3">
+  <header
+    class="order-summary d-flex justify-content-between align-items-center gap-3 mb-2"
+  >
+    <p class="fs-5 m-0">
+      <span class="order-item-price">
+        <%= order.productData.totalPrice.toLocaleString('vi-VN') %> VND
+      </span>
+      - <%= order.formattedDate %>
+    </p>
+    <% if(order.status === 'pending') { %>
+    <i class="text-danger fw-medium">
+      (Cancel on <%= new Date(order.date.getTime() + 24 * 3600 *
+      1000).toLocaleString('en-US', { weekday: 'short', month: 'long', day:
+      'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', second:
+      'numeric' }) %>)
+    </i>
+    <% } %>
+    <p class="fs-5 m-0">
+      <span class="badge"><%= order.status.toUpperCase() %></span>
+    </p>
+  </header>
+
+  <section>
+    <% if (locals.isAdmin) { %>
+      <address>
+        <p>
+          <a href="mailto:<%= order.userData.email %>"
+            ><%= order.userData.username %></a
+          >
+        </p>
+      </address>
+    <% } %>
+    <ul class="product-list">
+      <% for (const item of order.productData.items) { %>
+        <li class="mb-2">
+          <%= item.product.title %> - <%= item.totalPrice.toLocaleString('vi-VN')
+          %> VND (<%= item.product.price.toLocaleString('vi-VN') %> VND x <%=
+          item.quantity %>)
+        </li>
+      <% } %>
+    </ul>
+    <% if (!locals.isAdmin && order.status === "pending") { %>
+      <section class="d-flex gap-3 justify-content-center">
+        <button
+          type="button"
+          class="btn btn-alt"
+          data-bs-toggle="modal"
+          data-bs-target="#YesNoModal1"
+        >
+          <i class="fa-solid fa-xmark"></i>
+          CANCEL
+        </button>
+        <button
+          type="button"
+          class="btn btn-alt px-4"
+          data-bs-toggle="modal"
+          data-bs-target="#YesNoModal2"
+        >
+          <i class="fa-solid fa-credit-card me-1"></i>
+          PAY
+        </button>
+      </section>
+      <%- include('../../../admin/popup/yes-no-popup', { submitPath: '/orders/cancel', message: 'cancel this order?', i: 1 }) %> 
+      <%- include('../../../admin/popup/yes-no-popup', { submitPath: '/orders/pay', message: 'pay for this order?', i: 2 }) %> 
+    <% } %>
+  </section>
+</article>

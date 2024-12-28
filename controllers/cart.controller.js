@@ -1,36 +1,22 @@
 const Product = require("../models/product.model");
 const User = require("../models/user.model");
 const Pay_Account = require("../models/pay.model");
-// const Voucher = require("../models/voucher.model");
 const sessionFlash = require("../util/session-flash");
 
 async function getCart(req, res) {
   const user = await User.findById(res.locals.uid);
   const pay_account = await Pay_Account.findByUsername(user.username);
-//   const vouchers = await Voucher.findOwn(pay_account.vouchers);
-//   const discountVouchers = vouchers.filter((voucher) =>
-//     voucher.value.startsWith("d")
-//   );
-//   const getVouchers = vouchers.filter((voucher) =>
-//     voucher.value.startsWith("g")
-//   );
-//   const extraVouchers = vouchers.filter((voucher) =>
-//     voucher.value.startsWith("e")
-//   );
-//   let sessionData = sessionFlash.getSessionData(req);
+  let sessionData = sessionFlash.getSessionData(req);
 
-//   if (!sessionData) {
-//     sessionData = {
-//       message: null,
-//       isError: false,
-//     };
-//   }
+  if (!sessionData) {
+    sessionData = {
+      message: null,
+      isError: false,
+    };
+  }
 
   res.render("customer/cart/cart", {
     inputData: sessionData,
-    // discountVouchers: discountVouchers,
-    // getVouchers: getVouchers,
-    // extraVouchers: extraVouchers,
   });
 }
 

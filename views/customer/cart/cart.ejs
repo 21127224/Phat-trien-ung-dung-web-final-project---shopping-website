@@ -16,19 +16,6 @@
       <% } %>
     </ul>
 
-    <% if(locals.cart.totalPrice > 0) { %>
-      <section class="cart-total not-empty">
-        <p class="fs-4 fw-bold d-inline">Apply vouchers: </p> 
-        <button 
-          class="btn btn-solid rounded-circle px-2 py-1" 
-          data-bs-toggle="modal"
-          data-bs-target="#applyModal">
-          <i class="fa-solid fa-ticket"></i>
-        </button>
-        <i><h4 class="text-center text-secondary">No vouchers are applied</h4></i>
-      </section>
-    <% } %>
-
     <section class="cart-total d-flex">
       <p class="fs-4 fw-bold m-0">Total: <span id="cart-total-price"><%= locals.cart.totalPrice.toLocaleString('vi-VN') %></span> VND</p>
       
@@ -47,7 +34,6 @@
       <% } %>
     </section>
     
-    <%- include('includes/apply-voucher-form', { discountVouchers: discountVouchers, getVouchers: getVouchers, extraVouchers: extraVouchers })  %>
     <%- include('../../admin/popup/yes-no-popup', { submitPath: '/orders', message: 'pay for this order?', i: '' }) %>
     <%- include('../../admin/popup/notification', { message: inputData.message, isError: inputData.isError }) %>
   </main>

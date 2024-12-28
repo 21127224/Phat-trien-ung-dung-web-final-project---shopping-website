@@ -1,5 +1,4 @@
 const Pay_Account = require("../models/pay.model");
-// const Voucher = require("../models/voucher.model");
 const sessionFlash = require("../util/session-flash");
 const mongodb = require("mongodb");
 
@@ -8,7 +7,6 @@ async function createNewPaymentAccount(req, res, next) {
     username: req.query.username,
     surplus: req.query.isAdmin ? 0 : 1000000,
     point: 0,
-    vouchers: [],
     GoogleOrFacebookUsername: req.query.GoogleOrFacebookUsername || "",
     isAdmin: "1" === req.query.isAdmin,
   });
@@ -34,10 +32,10 @@ async function createNewPaymentAccount(req, res, next) {
     },
     function () {
       req.query.GoogleOrFacebookUsername
-        ? res.redirect("https://localhost:8080/products?firstTime=1")
+        ? res.redirect("https://localhost:8000/products?firstTime=1")
         : req.query.login === "1"
-        ? res.redirect("https://localhost:8080/")
-        : res.redirect("https://localhost:8080/accounts");
+        ? res.redirect("https://localhost:8000/")
+        : res.redirect("https://localhost:8000/accounts");
     }
   );
 }
@@ -53,8 +51,8 @@ async function deletePaymentAccount(req, res, next) {
   }
 
   isOwn
-    ? res.redirect("https://localhost:8080/logout")
-    : res.redirect("https://localhost:8080/accounts");
+    ? res.redirect("https://localhost:8000/logout")
+    : res.redirect("https://localhost:8000/accounts");
 }
 
 async function updatePaymentAccount(req, res, next) {
@@ -65,7 +63,6 @@ async function updatePaymentAccount(req, res, next) {
       username: req.query.new,
       surplus: existsAlready.surplus,
       point: existsAlready.point,
-      vouchers: existsAlready.vouchers,
       GoogleOrFacebookUsername: existsAlready.GoogleOrFacebookUsername,
       isAdmin: existsAlready.isAdmin,
     });
@@ -82,29 +79,10 @@ async function updatePaymentAccount(req, res, next) {
       isError: false,
     },
     function () {
-      res.redirect("https://localhost:8080/profile");
+      res.redirect("https://localhost:8000/profile");
     }
   );
 }
-
-// async function addVoucher(req, res, next) {
-//   try {
-//     const customer = await Pay_Account.findByUsername(req.query.username);
-//     const voucher = await Voucher.findById(req.query.voucherId);
-//     if (customer.point < voucher.point) {
-//       return res.redirect(
-//         "https://localhost:9090/vouchers/available?message=1"
-//       );
-//     }
-//     customer.vouchers.push(new mongodb.ObjectId(req.query.voucherId));
-//     customer.point -= voucher.point;
-//     customer.save(customer.username);
-//   } catch (error) {
-//     return next(error);
-//   }
-
-//   res.redirect("https://localhost:9090/vouchers/available?message=0");
-// }
 
 async function transfer(req, res, next) {
   try {
@@ -119,7 +97,6 @@ async function transfer(req, res, next) {
       username: admin.username,
       surplus: admin_surplus,
       point: 0,
-      vouchers: [],
       GoogleOrFacebookUsername: admin.username,
       isAdmin: true,
     });
@@ -130,7 +107,6 @@ async function transfer(req, res, next) {
       username: customer.username,
       surplus: customer_surplus,
       point: customer_point,
-      vouchers: customer.vouchers,
       GoogleOrFacebookUsername: customer.GoogleOrFacebookUsername,
       isAdmin: false,
     });
@@ -147,8 +123,8 @@ async function transfer(req, res, next) {
       },
       function () {
         isAddOrder
-          ? res.redirect("https://localhost:8080/cart")
-          : res.redirect("https://localhost:8080/orders");
+          ? res.redirect("https://localhost:8000/cart")
+          : res.redirect("https://localhost:8000/orders");
       }
     );
   } catch (error) {
@@ -160,6 +136,5 @@ module.exports = {
   createNewPaymentAccount: createNewPaymentAccount,
   updatePaymentAccount: updatePaymentAccount,
   deletePaymentAccount: deletePaymentAccount,
-//   addVoucher: addVoucher,
   transfer: transfer,
 };

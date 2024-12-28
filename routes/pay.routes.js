@@ -10,8 +10,6 @@ router.get("/update", payController.updatePaymentAccount);
 
 router.get("/delete", payController.deletePaymentAccount);
 
-// router.get("/exchange", payController.addVoucher);
-
 router.get("/transfer", payController.transfer);
 
 router.get("/401", function (req, res) {

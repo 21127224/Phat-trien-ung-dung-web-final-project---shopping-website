@@ -1,8 +1,7 @@
 const Category = require("../models/category.model");
 const Product = require("../models/product.model");
 const User = require("../models/user.model");
-const Order = require("../models/order.model");
-// const Voucher = require("../models/voucher.model");
+const Order = require("../models/order.model");;
 const sessionFlash = require("../util/session-flash");
 const fs = require("fs");
 const path = require("path");
@@ -156,7 +155,7 @@ async function createNewAccount(req, res, next) {
     await user.signup("true" === enteredData.type);
 
     res.redirect(
-      `https://localhost:8000/?username=${enteredData.username}&login=2`
+      `https://localhost:8080/?username=${enteredData.username}&login=2`
     );
   } catch (error) {
     return next(error);
@@ -172,7 +171,7 @@ async function deleteAccount(req, res, next) {
     return next(error);
   }
 
-  res.redirect(`https://localhost:8000/delete?username=${user.username}`);
+  res.redirect(`https://localhost:8080/delete?username=${user.username}`);
 }
 
 //Orders Manage
@@ -186,177 +185,6 @@ async function getAllOrders(req, res, next) {
     next(error);
   }
 }
-
-//Vouchers Manage
-// async function createNewVoucher(req, res, next) {
-//   const voucher = new Voucher({
-//     ...req.body,
-//     image: req.file.filename,
-//     isSpecial: false,
-//   });
-
-//   try {
-//     await voucher.save();
-//   } catch (error) {
-//     return next(error);
-//   }
-
-//   res.redirect("/vouchers?message=0");
-// }
-
-// async function updateVoucher(req, res, next) {
-//   const voucher = new Voucher({
-//     _id: req.params.id,
-//     ...req.body,
-//     isSpecial: false,
-//   });
-
-//   if (req.file) {
-//     voucher.replaceImage(req.file.filename);
-//   }
-
-//   try {
-//     await voucher.save();
-//   } catch (error) {
-//     return next(error);
-//   }
-
-//   res.redirect("/vouchers?message=1");
-// }
-
-// async function deleteVoucher(req, res, next) {
-//   try {
-//     const voucher = await Voucher.findById(req.params.id);
-//     const filePath = path.join(__dirname, voucher.image);
-//     await voucher.remove();
-//   } catch (error) {
-//     return next(error);
-//   }
-
-//   res.redirect("/vouchers?message=2");
-// }
-
-//Statistic
-// async function getStatistic(req, res, next) {
-//   res.render("admin/statistic/admin-statistic");
-// }
-
-// async function postRevenueByMonth(req, res, next) {
-//   const currentYear = new Date().getFullYear();
-//   let revenue = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-
-//   try {
-//     const orders = await Order.findAll();
-//     const orderInYear = orders.filter(
-//       (order) => order.date.getFullYear() === currentYear
-//     );
-
-//     for (let order of orderInYear) {
-//       if (order.status === "fulfilled") {
-//         revenue[order.date.getMonth()] += order.productData.totalPrice;
-//       }
-//     }
-
-//     res.status(200).send({ data: revenue });
-//   } catch (error) {
-//     next(error);
-//   }
-// }
-
-// async function postRevenue10Year(req, res, next) {
-//   const currentYear = new Date().getFullYear();
-//   let revenue = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-
-//   try {
-//     const orders = await Order.findAll();
-//     const orderByYear = orders.filter(
-//       (order) =>
-//         order.date.getFullYear() >= currentYear - 9 &&
-//         order.date.getFullYear() <= currentYear
-//     );
-
-//     for (let order of orderByYear) {
-//       if (order.status === "fulfilled") {
-//         revenue[9 - (currentYear - order.date.getFullYear())] +=
-//           order.productData.totalPrice;
-//       }
-//     }
-
-//     res.status(200).send({ data: revenue });
-//   } catch (error) {
-//     next(error);
-//   }
-// }
-
-// async function postQuantityByMonth(req, res, next) {
-//   const currentYear = new Date().getFullYear();
-//   let products = new Map();
-
-//   try {
-//     const orders = await Order.findAll();
-//     const orderInYear = orders.filter(
-//       (order) => order.date.getFullYear() === currentYear
-//     );
-
-//     for (let order of orderInYear) {
-//       if (order.status === "fulfilled") {
-//         for (let item of order.productData.items) {
-//           if (!products.has(item.product.title)) {
-//             products.set(
-//               item.product.title,
-//               [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-//             );
-//           }
-//           products.get(item.product.title)[order.date.getMonth()] +=
-//             item.quantity;
-//         }
-//       }
-//     }
-
-//     const quantity = Array.from(products.entries()).sort((a, b) => {
-//       return a[0].localeCompare(b[0]);
-//     });
-
-//     res.status(200).send({ data: quantity });
-//   } catch (error) {
-//     next(error);
-//   }
-// }
-
-// async function postQuantity10Year(req, res, next) {
-//   const currentYear = new Date().getFullYear();
-//   let products = new Map();
-
-//   try {
-//     const orders = await Order.findAll();
-//     const orderInYear = orders.filter(
-//       (order) =>
-//         order.date.getFullYear() >= currentYear - 9 &&
-//         order.date.getFullYear() <= currentYear
-//     );
-
-//     for (let order of orderInYear) {
-//       if (order.status === "fulfilled") {
-//         for (let item of order.productData.items) {
-//           if (!products.has(item.product.title)) {
-//             products.set(item.product.title, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-//           }
-//           products.get(item.product.title)[
-//             9 - (currentYear - order.date.getFullYear())
-//           ] += item.quantity;
-//         }
-//       }
-//     }
-
-//     const quantity = Array.from(products.entries()).sort((a, b) => {
-//       return a[0].localeCompare(b[0]);
-//     });
-
-//     res.status(200).send({ data: quantity });
-//   } catch (error) {
-//     next(error);
-//   }
-// }
 
 module.exports = {
   createNewCategory: createNewCategory,
@@ -372,13 +200,4 @@ module.exports = {
 
   getAllOrders: getAllOrders,
 
-  // createNewVoucher: createNewVoucher,
-  // updateVoucher: updateVoucher,
-  // deleteVoucher: deleteVoucher,
-
-//   getStatistic: getStatistic,
-//   postRevenueByMonth: postRevenueByMonth,
-//   postRevenue10Year: postRevenue10Year,
-//   postQuantityByMonth: postQuantityByMonth,
-//   postQuantity10Year: postQuantity10Year,
 };

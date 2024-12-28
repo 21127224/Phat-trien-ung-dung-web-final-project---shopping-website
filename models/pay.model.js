@@ -5,11 +5,11 @@ class Pay_Account {
     this.username = pay_accountData.username;
     this.surplus = pay_accountData.surplus;
     this.point = pay_accountData.point;
-    // this.vouchers = pay_accountData.vouchers;
     this.GoogleOrFacebookUsername = pay_accountData.GoogleOrFacebookUsername;
     this.isAdmin = pay_accountData.isAdmin;
     if (pay_accountData._id) {
       this.id = pay_accountData._id.toString();
+      console.log();
     }
   }
 
@@ -56,12 +56,12 @@ class Pay_Account {
       username: this.username,
       surplus: this.surplus,
       point: this.point,
-    //   vouchers: this.vouchers,
       GoogleOrFacebookUsername: this.GoogleOrFacebookUsername,
       isAdmin: this.isAdmin,
     };
 
     await db.getDb().collection("payers").insertOne(pay_accountData);
+    console.log(); // Kiểm tra kết quả từ database
   }
 
   async save(old_un) {
@@ -69,7 +69,6 @@ class Pay_Account {
       username: this.username,
       surplus: this.surplus,
       point: this.point,
-    //   vouchers: this.vouchers,
       GoogleOrFacebookUsername: this.GoogleOrFacebookUsername,
       isAdmin: this.isAdmin,
     };

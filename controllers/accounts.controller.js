@@ -96,7 +96,7 @@ async function updateAccount(req, res, next) {
   }
 
   res.redirect(
-    `https://localhost:8000/update?username=${oldAccount.username}&new=${newAccount.username}`
+    `https://localhost:8080/update?username=${oldAccount.username}&new=${newAccount.username}`
   );
 }
 
@@ -112,7 +112,7 @@ async function deleteOwnAccount(req, res, next) {
   console.log(user);
 
   res.redirect(
-    `https://localhost:8000/delete?username=${user.username}&isOwn=1`
+    `https://localhost:8080/delete?username=${user.username}&isOwn=1`
   );
 }
 

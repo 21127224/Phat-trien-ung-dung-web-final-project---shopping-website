@@ -1,0 +1,32 @@
+<%- include('../../shared/page/head', { pageTitle: 'Orders History' }) %>
+<link rel="stylesheet" href="/styles/orders.css">
+</head>
+
+<body>
+  <%- include('../../shared/page/header') %>
+  <main>
+    <ol>
+      <section class="d-flex justify-content-between heading">
+        <h1 class="mt-2 mb-4 <%= !locals.isAdmin ? 'customer-title' : '' %>">Orders History</h1>
+        <% if(!locals.isAdmin) { %>
+        <form
+          action="/orders/empty?_csrf=<%= locals.csrfToken %>"
+          method="POST"
+          class="my-auto"
+        >
+          <button type="submit" class="btn btn-solid">
+            <i class="fa-solid fa-broom me-1"></i>
+            Delete cancelled orders
+          </button>
+        </form>
+        <% } %>
+      </section>
+      <% for (const order of orders) { %>
+        <li><%- include('includes/order-item', { order: order }) %></li>
+      <% } %>
+    </ol>
+    <% if(!locals.isAdmin){ %>
+      <%-include('../../admin/popup/notification', { message: inputData.message, isError: inputData.isError }) %>
+    <% } %>
+  </main>
+<%- include('../../shared/page/footer') %>

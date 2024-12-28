@@ -66,7 +66,7 @@ async function addOrder(req, res, next) {
       await newOrder.save();
 
       res.redirect(
-        `https://localhost:8000/transfer?username=${customer_username}&price=${cart.totalPrice}&isAddOrder=true`
+        `https://localhost:8080/transfer?username=${customer_username}&price=${cart.totalPrice}&isAddOrder=true`
       );
 
       return;
@@ -116,7 +116,7 @@ async function payOrder(req, res, next) {
       await pending_order.save();
 
       res.redirect(
-        `https://localhost:8000/transfer?username=${customer_username}&price=${pending_order.productData.totalPrice}&isAddOrder=false`
+        `https://localhost:8080/transfer?username=${customer_username}&price=${pending_order.productData.totalPrice}&isAddOrder=false`
       );
 
       return;
