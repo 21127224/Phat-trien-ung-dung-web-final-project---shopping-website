@@ -23,18 +23,18 @@ const checkAuthStatusMiddleware = require("./middlewares/check-auth");
 const protectRoutesMiddleware = require("./middlewares/protect-routes");
 const cartMiddleware = require("./middlewares/cart");
 const updateCartPricesMiddleware = require("./middlewares/update-cart-prices");
-//const notFoundMiddleware = require("./middlewares/not-found");
+const notFoundMiddleware = require("./middlewares/not-found");
 const authRoutes = require("./routes/auth.routes");
 const categoriesRoutes = require("./routes/categories.routes");
 const productsRoutes = require("./routes/products.routes");
 const accountsRoutes = require("./routes/accounts.routes");
 //const voucherRoutes = require("./routes/voucher.routes");
-//const baseRoutes = require("./routes/base.routes");
+const baseRoutes = require("./routes/base.routes");
 const adminRoutes = require("./routes/admin.routes");
-//const ordersRoutes = require("./routes/orders.routes");
+const ordersRoutes = require("./routes/orders.routes");
 const cartRoutes = require("./routes/cart.routes");
 
-const port = process.env.PORT | 3000;
+const port = process.env.PORT | 8000;
 
 const app = express();
 const server = https.createServer(opts, app);
@@ -59,17 +59,17 @@ app.use(updateCartPricesMiddleware);
 app.use(addCsrfTokenMiddleware);
 app.use(checkAuthStatusMiddleware);
 
-//app.use(baseRoutes);
+app.use(baseRoutes);
 app.use(authRoutes);
 app.use(categoriesRoutes);
 app.use(productsRoutes);
 app.use(accountsRoutes);
 //app.use(voucherRoutes);
 app.use("/cart", cartRoutes);
-//app.use("/orders", protectRoutesMiddleware, ordersRoutes);
+app.use("/orders", protectRoutesMiddleware, ordersRoutes);
 app.use("/admin", protectRoutesMiddleware, adminRoutes);
 
-//app.use(notFoundMiddleware);
+app.use(notFoundMiddleware);
 
 app.use(errorHandlerMiddleware);
 

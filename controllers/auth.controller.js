@@ -81,15 +81,15 @@ async function signup(req, res, next) {
 
     if (firstUser) {
       await user.signup(false);
-      // res.redirect(
-      //   `https://localhost:8184/?username=${req.body.username}&login=1`
-      // );
+      res.redirect(
+        `https://localhost:8000/?username=${req.body.username}&login=1`
+      );
       res.redirect("/login")
     } else {
       await user.signup(true);
-      // res.redirect(
-      //   `https://localhost:8184/?username=${req.body.username}&isAdmin=1&login=1`
-      // );
+      res.redirect(
+        `https://localhost:8000/?username=${req.body.username}&isAdmin=1&login=1`
+      );
       res.redirect("/login")
     }
   } catch (error) {
@@ -164,7 +164,7 @@ async function successLogin(req, res) {
 
   authUtil.createUserSession(req, existsAlready, function () {
     res.redirect(
-      `https://localhost:5000/?username=${user.username}&GoogleOrFacebookUsername=${user.username}&login=1`
+      `https://localhost:8000/?username=${user.username}&GoogleOrFacebookUsername=${user.username}&login=1`
     );
   });
 }

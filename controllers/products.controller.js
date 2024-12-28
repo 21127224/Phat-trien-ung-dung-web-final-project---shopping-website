@@ -1,6 +1,6 @@
 const Category = require("../models/category.model");
 const Product = require("../models/product.model");
-//const Order = require("../models/order.model");
+const Order = require("../models/order.model");
 
 async function getProducts(req, res, next) {
   try {
@@ -12,20 +12,20 @@ async function getProducts(req, res, next) {
 
     /* Get bestseller */
     let quantityOfProducts = new Map();
-    // const orders = await Order.findAll();
-    // for (let order of orders) {
-    //   if (order.status === "fulfilled") {
-    //     for (let item of order.productData.items) {
-    //       if (!quantityOfProducts.has(item.product.title)) {
-    //         quantityOfProducts.set(item.product.title, 0);
-    //       }
-    //       quantityOfProducts.set(
-    //         item.product.title,
-    //         quantityOfProducts.get(item.product.title) + item.quantity
-    //       );
-    //     }
-    //   }
-    // }
+    const orders = await Order.findAll();
+    for (let order of orders) {
+      if (order.status === "fulfilled") {
+        for (let item of order.productData.items) {
+          if (!quantityOfProducts.has(item.product.title)) {
+            quantityOfProducts.set(item.product.title, 0);
+          }
+          quantityOfProducts.set(
+            item.product.title,
+            quantityOfProducts.get(item.product.title) + item.quantity
+          );
+        }
+      }
+    }
     quantityOfProducts = Array.from(quantityOfProducts.entries())
       .sort((a, b) => b[1] - a[1])
       .slice(0, 5);

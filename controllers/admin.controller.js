@@ -1,7 +1,7 @@
 const Category = require("../models/category.model");
 const Product = require("../models/product.model");
 const User = require("../models/user.model");
-//const Order = require("../models/order.model");
+const Order = require("../models/order.model");
 // const Voucher = require("../models/voucher.model");
 const sessionFlash = require("../util/session-flash");
 const fs = require("fs");
@@ -156,7 +156,7 @@ async function createNewAccount(req, res, next) {
     await user.signup("true" === enteredData.type);
 
     res.redirect(
-      `https://localhost:5000/?username=${enteredData.username}&login=2`
+      `https://localhost:8000/?username=${enteredData.username}&login=2`
     );
   } catch (error) {
     return next(error);
@@ -172,20 +172,20 @@ async function deleteAccount(req, res, next) {
     return next(error);
   }
 
-  res.redirect(`https://localhost:5000/delete?username=${user.username}`);
+  res.redirect(`https://localhost:8000/delete?username=${user.username}`);
 }
 
 //Orders Manage
-// async function getAllOrders(req, res, next) {
-//   try {
-//     const orders = await Order.findAll();
-//     res.render("shared/orders/order-list", {
-//       orders: orders,
-//     });
-//   } catch (error) {
-//     next(error);
-//   }
-// }
+async function getAllOrders(req, res, next) {
+  try {
+    const orders = await Order.findAll();
+    res.render("shared/orders/order-list", {
+      orders: orders,
+    });
+  } catch (error) {
+    next(error);
+  }
+}
 
 //Vouchers Manage
 // async function createNewVoucher(req, res, next) {
@@ -237,9 +237,9 @@ async function deleteAccount(req, res, next) {
 // }
 
 //Statistic
-async function getStatistic(req, res, next) {
-  res.render("admin/statistic/admin-statistic");
-}
+// async function getStatistic(req, res, next) {
+//   res.render("admin/statistic/admin-statistic");
+// }
 
 // async function postRevenueByMonth(req, res, next) {
 //   const currentYear = new Date().getFullYear();
@@ -370,7 +370,7 @@ module.exports = {
   createNewAccount: createNewAccount,
   deleteAccount: deleteAccount,
 
-  // getAllOrders: getAllOrders,
+  getAllOrders: getAllOrders,
 
   // createNewVoucher: createNewVoucher,
   // updateVoucher: updateVoucher,
