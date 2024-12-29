@@ -61,7 +61,6 @@ class Pay_Account {
     };
 
     await db.getDb().collection("payers").insertOne(pay_accountData);
-    console.log(); // Kiểm tra kết quả từ database
   }
 
   async save(old_un) {
