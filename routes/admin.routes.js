@@ -36,14 +36,14 @@ router.post("/accounts/delete/:id", adminController.deleteAccount);
 router.get("/orders", adminController.getAllOrders);
 
 // admin/statistic
-// router.get("/statistic", adminController.getStatistic);
+router.get("/statistic", adminController.getStatistic);
 
-// router.post("/revenue", adminController.postRevenueByMonth);
+router.post("/revenue", adminController.postRevenueByMonth);
 
-// router.post("/revenue2", adminController.postRevenue10Year);
+router.post("/revenue2", adminController.postRevenue10Year);
 
-// router.post("/quantity", adminController.postQuantityByMonth);
+router.post("/quantity", adminController.postQuantityByMonth);
 
-// router.post("/quantity2", adminController.postQuantity10Year);
+router.post("/quantity2", adminController.postQuantity10Year);
 
 module.exports = router;

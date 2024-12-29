@@ -186,6 +186,128 @@ async function getAllOrders(req, res, next) {
   }
 }
 
+//Statistic
+async function getStatistic(req, res, next) {
+  res.render("admin/statistic/admin-statistic");
+}
+
+async function postRevenueByMonth(req, res, next) {
+  const currentYear = new Date().getFullYear();
+  let revenue = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+  try {
+    const orders = await Order.findAll();
+    const orderInYear = orders.filter(
+      (order) => order.date.getFullYear() === currentYear
+    );
+
+    for (let order of orderInYear) {
+      if (order.status === "fulfilled") {
+        revenue[order.date.getMonth()] += order.productData.totalPrice;
+      }
+    }
+
+    res.status(200).send({ data: revenue });
+  } catch (error) {
+    next(error);
+  }
+}
+
+async function postRevenue10Year(req, res, next) {
+  const currentYear = new Date().getFullYear();
+  let revenue = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+  try {
+    const orders = await Order.findAll();
+    const orderByYear = orders.filter(
+      (order) =>
+        order.date.getFullYear() >= currentYear - 9 &&
+        order.date.getFullYear() <= currentYear
+    );
+
+    for (let order of orderByYear) {
+      if (order.status === "fulfilled") {
+        revenue[9 - (currentYear - order.date.getFullYear())] +=
+          order.productData.totalPrice;
+      }
+    }
+
+    res.status(200).send({ data: revenue });
+  } catch (error) {
+    next(error);
+  }
+}
+
+async function postQuantityByMonth(req, res, next) {
+  const currentYear = new Date().getFullYear();
+  let products = new Map();
+
+  try {
+    const orders = await Order.findAll();
+    const orderInYear = orders.filter(
+      (order) => order.date.getFullYear() === currentYear
+    );
+
+    for (let order of orderInYear) {
+      if (order.status === "fulfilled") {
+        for (let item of order.productData.items) {
+          if (!products.has(item.product.title)) {
+            products.set(
+              item.product.title,
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            );
+          }
+          products.get(item.product.title)[order.date.getMonth()] +=
+            item.quantity;
+        }
+      }
+    }
+
+    const quantity = Array.from(products.entries()).sort((a, b) => {
+      return a[0].localeCompare(b[0]);
+    });
+
+    res.status(200).send({ data: quantity });
+  } catch (error) {
+    next(error);
+  }
+}
+
+async function postQuantity10Year(req, res, next) {
+  const currentYear = new Date().getFullYear();
+  let products = new Map();
+
+  try {
+    const orders = await Order.findAll();
+    const orderInYear = orders.filter(
+      (order) =>
+        order.date.getFullYear() >= currentYear - 9 &&
+        order.date.getFullYear() <= currentYear
+    );
+
+    for (let order of orderInYear) {
+      if (order.status === "fulfilled") {
+        for (let item of order.productData.items) {
+          if (!products.has(item.product.title)) {
+            products.set(item.product.title, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+          }
+          products.get(item.product.title)[
+            9 - (currentYear - order.date.getFullYear())
+          ] += item.quantity;
+        }
+      }
+    }
+
+    const quantity = Array.from(products.entries()).sort((a, b) => {
+      return a[0].localeCompare(b[0]);
+    });
+
+    res.status(200).send({ data: quantity });
+  } catch (error) {
+    next(error);
+  }
+}
+
 module.exports = {
   createNewCategory: createNewCategory,
   updateCategory: updateCategory,
@@ -199,5 +321,10 @@ module.exports = {
   deleteAccount: deleteAccount,
 
   getAllOrders: getAllOrders,
-
+  
+  getStatistic: getStatistic,
+  postRevenueByMonth: postRevenueByMonth,
+  postRevenue10Year: postRevenue10Year,
+  postQuantityByMonth: postQuantityByMonth,
+  postQuantity10Year: postQuantity10Year,
 };
