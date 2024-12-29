@@ -43,7 +43,7 @@ app.use(cors());
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static("public"));
-app.use("/assets", express.static("image-data"));
+app.use("/assets", express.static("assets"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 

@@ -88,7 +88,7 @@ class User {
   }
 
   updateImageData() {
-    this.imagePath = `image-data/images/${this.image}`;
+    this.imagePath = `assets/images/${this.image}`;
     this.imageUrl = `/assets/images/${this.image}`;
   }
 

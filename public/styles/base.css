@@ -1,13 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 *,
 *::after,
 *::before {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  
 }
 
 :root {
-  font-family: "Montserrat", "sans-serif";
 
   --color-gray-50: rgb(243, 236, 230);
   --color-gray-100: rgb(207, 201, 195);
@@ -42,6 +43,10 @@
   --border-radius-circle: 50%;
 
   --shadow-medium: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+body {
+  font-family: "Poppins", sans-serif;
 }
 
 main {
